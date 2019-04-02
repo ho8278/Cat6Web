@@ -1,0 +1,28 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    min-width: 10vh;
+    padding-left: 20px;
+    margin: 0;
+    background-color: white;
+}
+
+.nav-list{
+    padding: 15px;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* .nav-list:nth-child(1) {
+    background-color: lightgrey;
+} */
+
+.nav-list:hover {
+    background-color: lightgray;
+}
+
+.nav-item {
+    text-align: right;
+    text-decoration: none;
+    color:darkblue;
+}
