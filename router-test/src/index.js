@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './client/Root';
-import HelloZu0p from './HelloZu0p';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,0 +1,43 @@
+#control-view {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border: 1px solid black;
+
+	#week-controller {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		.arrow-btn {
+			display: flex;
+			width: 50px;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			img {
+				max-width: 100%;
+			}
+			&:hover {
+				background-color: red;
+			}
+		}
+		#date-view {
+		}
+	}
+
+	#mode-controller {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		#mode-btn {
+			cursor: pointer;
+			&:hover {
+				background-color: red;
+			}
+		}
+
+		.active {
+			font-size: 20px;
+		}
+	}
+}

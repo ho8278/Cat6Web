@@ -1,0 +1,458 @@
+$white: #eee;
+$black: #111;
+$red: #ef7a8b;
+$blue: #769bff;
+$green: #a5d6a7;
+
+body {
+	margin: 0;
+	background: $white;
+	#root {
+		#app {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-height: 100vh;
+		}
+	}
+}
+
+#control-view {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 400px;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: $black;
+
+	#week-controller {
+		display: flex;
+		width: 250px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		#date-view {
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+
+		.arrow-btn {
+			display: flex;
+			width: 25px;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			img {
+				max-width: 100%;
+				color: $white;
+			}
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	#mode-controller {
+		display: flex;
+		width: 150px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+
+		#mode-btn {
+			display: flex;
+			justify-content: center;
+			width: 25px;
+			cursor: pointer;
+		}
+		&:hover {
+			opacity: 0.5;
+		}
+
+		.active {
+			font-size: 20px;
+		}
+	}
+}
+
+#calendar-view {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+
+	#monthly-view {
+		width: 840px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 50px;
+
+		.day-row {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			border-bottom: solid 2px $black;
+
+			.day-cell {
+				width: 120px;
+				height: 60px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				box-sizing: border-box;
+				border-right: solid 1px $black;
+				border-top: solid 1px $black;
+				&:nth-child(1) {
+					border-left: solid 1px $black;
+					color: $red;
+				}
+				&:nth-child(7) {
+					color: $blue;
+				}
+			}
+		}
+
+		.monthly-row {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			border-bottom: solid 1px $black;
+			.monthly-cell {
+				width: 120px;
+				height: 120px;
+				display: flex;
+				flex-direction: column;
+				box-sizing: border-box;
+				border-right: solid 1px $black;
+				padding: 0px;
+				cursor: pointer;
+				overflow: scroll;
+				padding: 5px;
+
+				p {
+					width: 100%;
+					background: $white;
+					z-index: 3;
+					position: sticky;
+					top: 0;
+					margin: 0;
+				}
+
+				.monthly-schedule {
+					padding: 5px;
+					font-size: 12px;
+					background: $black;
+					// border: solid 1px $black;
+					color: $white;
+					border-radius: 5px;
+					z-index: 2;
+					margin-bottom: 10px;
+					cursor: pointer;
+					&:hover {
+						opacity: 0.5;
+					}
+					p {
+						background: $black;
+						margin: 0;
+					}
+				}
+
+				&:nth-child(1) {
+					border-left: solid 1px $black;
+				}
+			}
+		}
+	}
+
+	#weekly-view {
+		width: 900px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		box-sizing: border-box;
+		margin-bottom: 50px;
+
+		.hour-col {
+			width: 60px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border-right: solid 0.5px $black;
+			border-top: solid 0.5px $black;
+			border-left: solid 0.5px $black;
+			border-bottom: solid 0.5px $black;
+			box-sizing: border-box;
+
+			.hour-cell {
+				width: 100%;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				box-sizing: border-box;
+				&:nth-child(1) {
+					height: 30px;
+				}
+				&:nth-child(2) {
+					height: 30px;
+					border-bottom: solid 2px $black;
+				}
+
+				&:nth-child(3) {
+					// border-top: solid 1px $black;
+				}
+			}
+		}
+
+		.weekly-col {
+			width: 120px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border-right: solid 0.5px $black;
+			border-top: solid 0.5px $black;
+			border-bottom: solid 0.5px $black;
+			box-sizing: border-box;
+
+			.weekly-cell {
+				width: 100%;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				box-sizing: border-box;
+				cursor: pointer;
+				overflow: visible;
+
+				.weekly-schedule {
+					display: flex;
+					flex-direction: column;
+					width: 120px;
+					background: $black;
+					color: $white;
+					font-size: 12px;
+					padding: 5px;
+					border: solid 1px $black;
+					margin: 5px;
+					border-radius: 5px;
+					z-index: 3;
+					cursor: pointer;
+
+					&:hover {
+						opacity: 0.5;
+					}
+
+					p {
+						width: 100px;
+						margin: 0;
+						overflow: scroll;
+					}
+				}
+
+				&:nth-child(1) {
+					display: flex;
+					align-items: center;
+					height: 30px;
+				}
+
+				&:nth-child(2) {
+					display: flex;
+					align-items: center;
+					height: 30px;
+					border-bottom: solid 2px black;
+				}
+
+				&:nth-child(3) {
+					// border-top: solid 1px $black;
+				}
+
+				&:nth-child(n + 3) {
+					border-bottom: solid 1px $black;
+				}
+			}
+
+			.sunday {
+				color: $red;
+			}
+			.saturday {
+				color: $blue;
+			}
+		}
+	}
+}
+
+#panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 7;
+
+	#add-form {
+		// position: absolute;
+		// top: 0;
+		margin-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		width: 250px;
+		// height: 100px;
+		background: $white;
+		color: $black;
+		border-radius: 10px;
+		padding: 20px;
+
+		.label {
+			font-weight: bold;
+			color: $black;
+			margin-right: 10px;
+		}
+
+		#add-form-title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 100%;
+			justify-content: center;
+			font-weight: bold;
+			margin-bottom: 30px;
+			font-size: 20px;
+		}
+
+		#input-form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 20px;
+			#input-title {
+				margin: 0;
+				padding: 0;
+				width: 200px;
+				height: 18px;
+			}
+		}
+
+		#date-picker-form {
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px;
+			#date-picker {
+				input {
+					margin: 0;
+					padding: 0;
+					width: 200px;
+					height: 18px;
+					// text-align: center;
+				}
+			}
+		}
+
+		#hour-picker-form {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: baseline;
+			margin-bottom: 30px;
+
+			select {
+				margin-right: 5px;
+			}
+		}
+
+		#option-form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 100%;
+			justify-content: space-evenly;
+
+			.btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 30px;
+				border-radius: 5px;
+				border: solid 1px $black;
+				width: 60px;
+
+				cursor: pointer;
+				color: $black;
+				font-weight: bold;
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+			#cancel-btn {
+				background: $white;
+			}
+
+			#add-btn {
+				background: $blue;
+			}
+			#edit-btn {
+				background: $green;
+			}
+
+			#delete-btn {
+				background: $red;
+			}
+		}
+	}
+}
+
+#error-panel {
+	display: flex;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100px;
+	z-index: 4;
+	#error-popup {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 5px;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		opacity: 0.8;
+
+		.error-message {
+		}
+	}
+
+	.add {
+		background: $blue;
+	}
+	.edit {
+		background: $green;
+	}
+	.fail {
+		background: $red;
+	}
+	.delete {
+		background: $black;
+		color: $white;
+	}
+}

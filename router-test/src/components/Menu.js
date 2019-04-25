@@ -12,7 +12,7 @@ const Menu = () => {
         <div>
             <nav>
                 <ul className="nav-container">
-                  <li className="nav-list"><NavLink exact to="/" activeStyle={activeStyle} className="nav-item">Home</NavLink></li>
+                  <li className="nav-list"><NavLink exact to="/" activeStyle={activeStyle} className="nav-item">Calendar</NavLink></li>
                   <li className="nav-list"><NavLink to="/conference" activeStyle={activeStyle} className="nav-item">Conference</NavLink></li>
                   <li className="nav-list"><NavLink exact to="/channels" activeStyle={activeStyle} className="nav-item">Channels<button style={{border:'0', outline:'0'}}>+</button></NavLink></li>
                   <li className="nav-list"><NavLink exact to="/direct" activeStyle={activeStyle} className="nav-item">Direct</NavLink></li>
