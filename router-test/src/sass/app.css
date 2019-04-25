@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #eee; }
+  background: white; }
   body #root #app {
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ body {
       cursor: pointer; }
       #control-view #week-controller .arrow-btn img {
         max-width: 100%;
-        color: #eee; }
+        color: white; }
       #control-view #week-controller .arrow-btn:hover {
         opacity: 0.5; }
   #control-view #mode-controller {
@@ -107,7 +107,7 @@ body {
         padding: 5px; }
         #calendar-view #monthly-view .monthly-row .monthly-cell p {
           width: 100%;
-          background: #eee;
+          background: white;
           z-index: 3;
           position: sticky;
           top: 0;
@@ -116,7 +116,7 @@ body {
           padding: 5px;
           font-size: 12px;
           background: #111;
-          color: #eee;
+          color: white;
           border-radius: 5px;
           z-index: 2;
           margin-bottom: 10px;
@@ -181,7 +181,7 @@ body {
           flex-direction: column;
           width: 120px;
           background: #111;
-          color: #eee;
+          color: white;
           font-size: 12px;
           padding: 5px;
           border: solid 1px #111;
@@ -229,7 +229,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     width: 250px;
-    background: #eee;
+    background: white;
     color: #111;
     border-radius: 10px;
     padding: 20px; }
@@ -293,7 +293,7 @@ body {
         #panel #add-form #option-form .btn:hover {
           opacity: 0.5; }
       #panel #add-form #option-form #cancel-btn {
-        background: #eee; }
+        background: white; }
       #panel #add-form #option-form #add-btn {
         background: #769bff; }
       #panel #add-form #option-form #edit-btn {
@@ -327,4 +327,4 @@ body {
     background: #ef7a8b; }
   #error-panel .delete {
     background: #111;
-    color: #eee; }
+    color: white; }
