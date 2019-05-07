@@ -1,0 +1,46 @@
+#calendar-view {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	top: 0;
+	#weekly {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		overflow: scroll;
+
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			div {
+				display: flex;
+				width: 100%;
+				height: 50px;
+			}
+		}
+
+		.hour-col {
+			width: 5%;
+			.hour-cell {
+				box-sizing: border-box;
+				&:nth-child(2n + 3) {
+					background:white;
+				}
+			}
+		}
+
+		.weekly-col {
+			width: 10%;
+			.weekly-cell {
+				box-sizing: border-box;
+				&:nth-child(2n + 3) {
+					background:white;
+				}
+			}
+		}
+	}
+}
