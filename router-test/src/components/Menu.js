@@ -26,23 +26,31 @@
 // export default Menu;
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
+import './Menu.css';
 
 class Menu extends Component {
-    render() {
-        return(
-            <div>
-              <div className="group_name">group_name</div>
-              <div className="menu_list_container">
-                <nav>
-                  <ul className="menu_list">
-                    <li className="menu_item"><NavLink exact to="/" className="menu_link">Calendar</NavLink></li>
-                    <li className="menu_item"><NavLink to="conference" className="menu_link">Conference</NavLink></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-        );
-    }
+  render() {
+    const  listStyle ={
+      listStyle: 'none'
+    };
+    const activeStyle = { 
+      fontWeight: 'bold'
+    };
+
+    return(
+      <div>
+        <div className="group_name">group_name</div>
+        <div className="menu_list_container">
+          <nav>
+            <ul className="menu_list" style={listStyle}>
+              <li className="menu_item"><NavLink exact to="/" activeStyle={activeStyle} className="menu_link">Calendar</NavLink></li>
+              <li className="menu_item"><NavLink exact to="/conference" activeStyle={activeStyle} className="menu_link">Conference</NavLink></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Menu;

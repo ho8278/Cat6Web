@@ -19,6 +19,7 @@ class App extends Component {
                 </div> */}
                 <div className="menu_nav_container">            
                   <Menu />
+                  <hr width="140px" />
                   <Channels_Nav />
                 </div>
               </div>
@@ -35,12 +36,6 @@ class App extends Component {
                 <Route path="/conference" component={Conference} />
                 <Route path="/direct" component={Direct} />
               </div>
-
-              <div className="client_info_container">
-              </div>
-            </div>
-            <div className="righ_container">
-              <div><NavLink exact to="/mypage">mypage</NavLink></div>
             </div>
           </div>
         );

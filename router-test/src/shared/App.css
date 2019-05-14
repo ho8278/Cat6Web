@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    box-sizing: border-box;
+    padding-left: 20px;
+    color: darkblue;
 }
 
 .client_channels_list_container{    
@@ -21,7 +22,7 @@
     min-width: 1px;
     max-width: 100px;
     z-index: 201;
-    box-sizing: border-box;
+    box-sizing: content-box;
     visibility: visible;
     background-color: darkgray;
 }
@@ -31,7 +32,9 @@
     display: flex;
     flex-direction: column;
     max-width: 150px;
-    background-color: darkgray;
+    background-color: white;
+    box-sizing: inherit;
+    padding: 10px;
 }
 
 .client_main_container{
@@ -39,10 +42,4 @@
     display: flex;
     flex-direction: column;
     margin-left: 50px;
-}
-
-.right_container{
-    position: relative;
-    display: flex;
-    flex-direction: row-reverse;
 }
