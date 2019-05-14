@@ -45,6 +45,7 @@ class Menu extends Component {
             <ul className="menu_list" style={listStyle}>
               <li className="menu_item"><NavLink exact to="/" activeStyle={activeStyle} className="menu_link">Calendar</NavLink></li>
               <li className="menu_item"><NavLink exact to="/conference" activeStyle={activeStyle} className="menu_link">Conference</NavLink></li>
+              <li className="menu_item"><NavLink exact to="/posts" activeStyle={activeStyle} className="menu_link">Posts</NavLink></li>
             </ul>
           </nav>
         </div>

@@ -5,6 +5,7 @@ import Menu from 'components/Menu';
 import Header from 'components/Header';
 import Groups_Nav from 'components/Groups_Nav';
 import Channels_Nav from 'components/Channels_Nav';
+import DirectMessage_Nav from 'components/DirectMessage_Nav';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,8 @@ class App extends Component {
                   <Menu />
                   <hr width="140px" />
                   <Channels_Nav />
+                  <hr width="140px" />
+                  <DirectMessage_Nav />
                 </div>
               </div>
 

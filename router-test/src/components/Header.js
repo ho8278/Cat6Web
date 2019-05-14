@@ -69,6 +69,7 @@ const Header = () => {
                 <button class="dropbtn">Mypage</button>
                 <div class="dropdown-content">
                     <NavLink to="/mypage">회원정보 수정</NavLink>
+                    로그아웃
                     <hr />
                     <p className="groups_bar">Groups</p>
                     <NavLink to="/">group1</NavLink>

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
-import './Groups_Nav.css';
 
 class Channels_Nav extends Component {
     render() {
