@@ -1,0 +1,103 @@
+.husks{
+    position: relative;
+    color: black;
+    text-align: center;
+}
+
+.mypage_container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mypage_banner{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.user_info{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.user_info_text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    margin-left: 32%;
+    margin-right: 20px;
+}
+
+.user_info_picture{
+    padding: 10px;
+}
+
+label{
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+
+input[type="text"], 
+input[type="password"]{
+    height: 23px;
+    padding: 3px;
+    margin-bottom: 4px;
+}
+
+.user_info_text_item{
+    margin-bottom: 40px;
+}
+
+.check_pw_btn, .check_overlap_btn{
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 10px; 
+}
+
+.change_btn_body{
+    position: relative;
+}
+
+.button {
+    background-color: darkgray;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.user_info_change_btn{
+    font-size: 25px;
+    font-weight: bold;
+    width: 280px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;
+}
+
+.user_info_change_btn:hover {
+    background-color:darkgray;
+    color: white;
+}
