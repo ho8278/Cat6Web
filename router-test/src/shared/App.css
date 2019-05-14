@@ -1,0 +1,48 @@
+.left_container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.client_channels_list_container{    
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.groups_nav_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 220px;
+    flex-shrink: 0;
+    min-width: 1px;
+    max-width: 100px;
+    z-index: 201;
+    box-sizing: border-box;
+    visibility: visible;
+    background-color: darkgray;
+}
+
+.menu_nav_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    background-color: darkgray;
+}
+
+.client_main_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.right_container{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+}
