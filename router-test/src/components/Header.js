@@ -1,45 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
+import CatSixLogo from 'img/CatSix.jpg';
+import MyPageLogo from 'img/MyPageLogo.jpg';
 
 const Header = () => {
-    const style ={
-        // textAlign: 'left',
-        paddingLeft: '20px',
-        paddingRight: '20px',
-        alignItem: 'center',
-        backgroundColor: 'white',
-        minHeight:'5vh',
-        margin:0,
-        flexDirection : 'row'
-    };
-
-    const logo = {
-        textDecoration: 'none',
-        color: 'darkblue',
-        float: 'left',
-        width: '90%'
-    };
-
-    const mypage = {
-        textDecoration: 'none',
-        color: 'darkblue',
-        float: 'left',
-        width: '10%',
-        paddingTop: '20px',
-        verticalAlign: 'middle',
-        textAlign: 'center'
-    };
-
-    const clear ={
-        clear: 'both'
-    };
 
     return(
-        <div style={style}>
-            <NavLink to="/" style={logo}><h1>CatSix</h1></NavLink>
+        <div className="head">
+            <NavLink to="/" > 
+            <img src={CatSixLogo} className="CatSixLogoStyle"/>
+            </NavLink>
+            <div className="dropdown" >
+            <img src={MyPageLogo} className="MyPageLogoStyle"/>
+                <div class="dropdown-content">
+                    <NavLink to="/mypage">회원정보 수정</NavLink>
+                    로그아웃
+                    <hr />
+                    <p className="groups_bar">Groups</p>
+                    <NavLink to="/">group1</NavLink>
+                    <NavLink to="/">group2</NavLink>
+                    <NavLink to="/">group3</NavLink>
+                </div>
+            </div>
+            <hr />
+        </div>
+       
+    );
+};
 
-            {/* <div className="my_page_nav">
+export default Header
+
+  /* 안쓰는거 
+  <div className="my_page_nav">
                <input className="hamburger" type="checkbox" />
                <label for="hamburger">&equiv;</label>
                <nav>
@@ -54,34 +47,13 @@ const Header = () => {
                     <h1>CSS 슬라이드 메뉴 예제</h1>
                     <p>몰라ㅏ아</p>
                 </div>
-            </div> */}
+            </div> */
 
-            {/* <NavLink to="/myPage"><div style={mypage}>my page</div></NavLink> */}
+            /* <NavLink to="/myPage"><div style={mypage}>my page</div></NavLink> */
             
-            {/* <select className="mypage_dropdown">
+            /* <select className="mypage_dropdown">
               <option className="user_info_change">회원정보 수정</option>
               <option className="user_signout">회원탈퇴</option>
               <hr />
               <option className="groups_list">group1</option>
-            </select> */}
-
-            <div className="dropdown" style={mypage}>
-                <button class="dropbtn">Mypage</button>
-                <div class="dropdown-content">
-                    <NavLink to="/mypage">회원정보 수정</NavLink>
-                    로그아웃
-                    <hr />
-                    <p className="groups_bar">Groups</p>
-                    <NavLink to="/">group1</NavLink>
-                    <NavLink to="/">group2</NavLink>
-                    <NavLink to="/">group3</NavLink>
-                </div>
-            </div>
-
-            <div style={clear}></div>
-            <hr />
-        </div>
-    );
-};
-
-export default Header
+            </select> */
