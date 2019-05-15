@@ -21,9 +21,9 @@ class App extends Component {
                 </div> */}
               <div className="menu_nav_container">
                 <Menu />
-                <hr width="140px" />
+                <hr width="250px" />
                 <Channels_Nav />
-                <hr width="140px" />
+                <hr width="250px" />
                 <DirectMessage_Nav />
               </div>
             </div>

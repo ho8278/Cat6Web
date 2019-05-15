@@ -1,0 +1,38 @@
+.dm_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dm_banner{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]{
+    width: 400px;
+    height: 38px;
+    font-size: 20px;
+}
+
+.go{
+    margin-top: 20px;
+}
+#go_btn{
+    font-size: 22px;
+    width: 55px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 10px; 
+}
+
+#go_btn:hover{
+    background-color:darkgray;
+    color: white;
+}

@@ -15,20 +15,22 @@ const Mypage = () => {
                         <div className="user_info_text">
                             <div className="user_info_text_item">
                                 <div><label>Full name</label></div>
-                                <input type="text" name="input_name"></input>
+                                <input id="items" type="text" name="input_name"></input>
                             </div>
 
                             <div className="user_info_text_item">
                                 <div><label>Nickname</label></div>
-                                <input type="text" name="input_nickname"></input>
+                                <input id="items" type="text" name="input_nickname"></input>
                                 <button className="check_overlap_btn">중복확인</button>
                             </div>
 
                             <div className="user_info_text_item">
                                 <div><label>Password</label></div>
-                                <input type="password" name="input_pw"></input>
-                                <input type="password" name="check_input_pw"></input>
-                                <button className="check_pw_btn">비밀번호 확인</button>
+                                <input id="items" type="password" name="input_pw"></input>
+                                <div>
+                                    <input id="items" type="password" name="check_input_pw"></input>
+                                    <button className="check_pw_btn">비밀번호 확인</button>
+                                </div>
                             </div>
                         </div>
 
