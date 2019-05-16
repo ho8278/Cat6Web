@@ -82,8 +82,8 @@
   font-weight: 500;
   border: none;
   border-radius: 50px;
-  color: rgb(241, 210, 71);
-  background-color: black;
+  color: black;
+  background-color: #f9f9f9;
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
@@ -91,6 +91,11 @@
   height: 25px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.add_btn:hover{
+  background-color: rgb(241, 210, 71);
+  color:black;
 }
 
 hr{
