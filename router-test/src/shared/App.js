@@ -21,9 +21,15 @@ class App extends Component {
                 </div> */}
               <div className="menu_nav_container">
                 <Menu />
+<<<<<<< HEAD
                 <hr width="150px" />
                 <Channels_Nav />
                 <hr width="150px" />
+=======
+                <hr width="250px" />
+                <Channels_Nav />
+                <hr width="250px" />
+>>>>>>> 1cf660f8e896eee8c10a6f1241738d8cd6360234
                 <DirectMessage_Nav />
               </div>
             </div>

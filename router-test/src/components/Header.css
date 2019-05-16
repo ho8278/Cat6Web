@@ -38,8 +38,10 @@
 
 .groups_bar{
   padding-left: 10px;
+  padding-right: 80px;
   text-align: left;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .CatSixLogoStyle{
@@ -56,81 +58,41 @@
   flex-Direction : row;
 }
 
-
-/* 안쓰는 것들
-.dropbtn {
-  background-color:darkblue;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
+.a{  
+  font-size: 15px;
   border: none;
+  color: black;
+  background-color: #f9f9f9;
+  display: inline-block;
+  text-decoration: none;
   cursor: pointer;
-  border-radius: 5px;
+  padding: 15px;
+  width: 200px;
 }
 
-*/
-/*.body {
-    margin: 0;
-    overflow-x: hidden;
-    display: flex;
-}
-  
-.hamburger { display: none; }
-
-.hamburger ~ * {
-    position: absolute;
-    transition: transform 0.4s;
+.group_invite{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
 }
 
-.hamburger:checked ~ * { transform: translate3d(200px, 0, 0); }
-
-.hamburger ~ label {
-    font-size: 54px;
-    top: -16px; left: 8px;
-    cursor: pointer;
-    z-index: 1;
+.add_btn{
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  color: rgb(241, 210, 71);
+  background-color: black;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-.hamburger ~ nav {
-    background: black;
-    width: 200px;
-    left: -200px;
-    height: 100%;
+hr{
+  color: rgb(196, 195, 195);
 }
-
-.hamburger ~ nav * {
-    margin: 0; padding: 0;
-    color: white;
-}
-
-.hamburger ~ nav header {
-    background: teal;
-    padding: 1em;
-}
-
-.hamburger ~ nav a {
-    display: block;
-    text-decoration: none;
-    padding: 1em;
-}
-
-.hamburger ~ nav a:hover { background: gray; }
-  
-.content {
-    position: relative;
-    width: 100%;
-    background: silver;
-    padding: 2.6em 1em 1em;
-}
-
-.mypage_dropdown{
-    width: 200px;
-
-}
-
-select::-ms-expand{
-    display: none;
-}
-*/
-
-/* Style The Dropdown Button */

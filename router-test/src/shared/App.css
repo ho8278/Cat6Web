@@ -16,7 +16,7 @@
     flex-direction: row;
     overflow: hidden;
     padding-left: 20px;
-    color: darkblue;    
+    color: black;    
 }
 
 .client_channels_list_container{    
@@ -53,7 +53,7 @@
 .client_main_container{
     position: relative;
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 10px;
     height: inherit;
     width: 100%;
 }

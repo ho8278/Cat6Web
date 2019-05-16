@@ -7,13 +7,20 @@ class Menu extends Component {
     const  listStyle ={
       listStyle: 'none'
     };
+
     const activeStyle = { 
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: 'rgb(241, 210, 71)',
+      fontSize: '23px'
     };
 
     return(
       <div>
-        <div className="group_name">group_name</div>
+        <div className="group_container">
+          <label className="group_name">Group_name</label>          
+          <button className="add_btn" title="그룹초대">+</button>
+        </div>
+
         <div className="menu_list_container">
           <nav>
             <ul className="menu_list" style={listStyle}>

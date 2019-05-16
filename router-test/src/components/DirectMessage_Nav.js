@@ -9,14 +9,19 @@ class DirectMessage_Nav extends Component {
 
       const dr={
         fontWeight: 'bold',
-        fontSize: '20px',
-        textDecoration: 'none'
+        fontSize: '30px',
+        textDecoration: 'none',
+        color: 'black'
       };
       
+      const activeStyle={
+        color: 'rgb(241, 210, 71)'
+      };
+
       return(
         <div>
           <div className="direct_container">
-            <div><NavLink to="/direct" style={dr}>Direct Message</NavLink></div>
+            <div><NavLink to="/direct" style={dr} activeStyle={activeStyle}>Direct Message</NavLink></div>
           </div>
         </div>
       );

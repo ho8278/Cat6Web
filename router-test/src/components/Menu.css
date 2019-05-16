@@ -7,11 +7,14 @@
     cursor: pointer;
     list-style: none;
     text-decoration: none;
-    color:darkblue;
+    color:black;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .menu_link{
     text-decoration: none;
+    color: black;
 }
 
 /* .nav-container {
@@ -39,5 +42,9 @@
 
 .group_name{
     font-weight: bold;   
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.add_btn{
+    margin-left: 20px;
 }
