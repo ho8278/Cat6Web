@@ -13,28 +13,22 @@ class App extends Component {
     return (
       <div className="zu0p">
         <Header />
-        <div className="my_content">
-          <div className="left">
+        <div className="my_content">   
             <div className="client_channels_list_container">
               {/* <div className="groups_nav_container">
                   <Groups_Nav />
                 </div> */}
               <div className="menu_nav_container">
                 <Menu />
-<<<<<<< HEAD
-                <hr width="150px" />
-                <Channels_Nav />
-                <hr width="150px" />
-=======
                 <hr width="250px" />
                 <Channels_Nav />
                 <hr width="250px" />
->>>>>>> 1cf660f8e896eee8c10a6f1241738d8cd6360234
                 <DirectMessage_Nav />
               </div>
             </div>
 
             <div className="client_main_container">
+              <div className="client_main_container_inner">
               <Route exact path="/" component={Home} />
               <Switch>
                 <Route path="/about/:name" component={About} />
@@ -45,10 +39,10 @@ class App extends Component {
               <Route path="/channels" component={Channels} />
               <Route path="/conference" component={Conference} />
               <Route path="/direct" component={Direct} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

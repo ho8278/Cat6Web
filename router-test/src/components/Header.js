@@ -5,7 +5,6 @@ import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';
 
 const Header = () => {
-
     return(
         <div className="head">
             <NavLink to="/" > 
