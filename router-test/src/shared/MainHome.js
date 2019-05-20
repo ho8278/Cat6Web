@@ -5,17 +5,27 @@ import LoginPanel from './LoginPanel';
 import RegisterPanel from './RegeisterPanel';
 
 class MainHome extends Component {
-    
-	componentWillMount(){
-		this.state = {
-			userId: '',
-		};
+    constructor() {
+        super(...arguments);
+        this.state = {
+            userId: '',
+        };
+
 	}
+	
+	// componentWillMount(){
+	// 	this.state = {
+	// 		userId: '',
+	// 	};
+	// }
 
 	onLogin(adminId){
+		
+		this.userId = adminId;
 		this.setState({
-			userId:adminId
+			userId: adminId
 		});
+		alert(this.userId);
     }
 
 	onLogout(){
@@ -29,6 +39,11 @@ class MainHome extends Component {
 			registerFlag: true
 		});
 	}
+
+	// shouldComponentUpdate(){
+	// 	return true;
+	// }
+
 	render(){
 		//return<RegisterPanel/>
 		if(!this.state.userId){
@@ -36,11 +51,12 @@ class MainHome extends Component {
 					onSuccess={this.onLogin.bind(this)} 
 					/>;
 		}
-
-		return <App 
+		else{
+			return <App
 		    userId={this.state.userId}
-			onLogout={this.onLogout.bind(this)}
-        	/>;
+			onLogout={this.onLogout.bind(this)} />;
+		}		
 	}
 }
+
 export default MainHome;

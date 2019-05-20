@@ -2,14 +2,23 @@
 .my_content{
     position: relative;
     min-height: 900px;
-    background-color: gray;
+    background-color: white;
     display: flex;
 }
+
+.left{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .client_channels_list_container{    
     position: relative;
     display: flex;
     flex-direction: row;
 }
+
 .menu_nav_container{
     position: relative;
     flex-direction: column;
@@ -26,8 +35,7 @@
     background-color: white;
     padding: 20px; 
     width: 100%;
-    margin: 25px;
-   
+    margin: 25px;  
 }
 /* 
 .groups_nav_container{
@@ -44,7 +52,7 @@
     background-color: darkgray;
 } */
 
-.menu_nav_container{
+/* .menu_nav_container{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,7 +68,7 @@
     margin-left: 10px;
     height: inherit;
     width: 100%;
-}
+} */
 
 /* 
 ////////////////////////////////// */

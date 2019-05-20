@@ -17,6 +17,7 @@ class App extends Component {
           onLogout={this.props.onLogout.bind(this.props)} />
 
         <div className="my_content">
+
           <div className="left">
             <div className="client_channels_list_container">
               {/* <div className="groups_nav_container">
@@ -31,6 +32,7 @@ class App extends Component {
                 <DirectMessage_Nav />
               </div>
             </div>
+
             <div className="client_main_container">
               <Route exact path="/" component={Home} />
               <Switch>
@@ -46,24 +48,9 @@ class App extends Component {
               <Route path="/createGroup" component={CreateGroup} />
             </div>
 
-            </div>
-
-            <div className="client_main_container">
-              <div className="client_main_container_inner">
-              <Route exact path="/" component={Home} />
-              <Switch>
-                <Route path="/about/:name" component={About} />
-                <Route path="/about" component={About} />
-              </Switch>
-              <Route path="/posts" component={Posts} />
-              <Route path="/myPage" component={Mypage} />
-              <Route path="/channels" component={Channels} />
-              <Route path="/conference" component={Conference} />
-              <Route path="/direct" component={Direct} />
-              </div>
-            </div>
           </div>
         </div>
+      </div>
     );
   }
 }

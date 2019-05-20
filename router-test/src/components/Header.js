@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './Header.css';
 import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';

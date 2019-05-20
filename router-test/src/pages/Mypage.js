@@ -32,9 +32,14 @@ class Mypage extends Component {
                     });
                 }
             )
-            .then(function (response){
+            .then(function (response) {
                 console.log(response);
             })
+    }
+
+    changeInfo() {
+        
+
     }
 
     render() {
@@ -88,7 +93,7 @@ class Mypage extends Component {
                             </div>
 
                             <div className="change_bt_body">
-                                <button className="user_info_change_btn">Save changes!</button>
+                                <button className="user_info_change_btn" onClick={this.changeInfo}>Save changes!</button>
                             </div>
                         </div>
                     </div>
