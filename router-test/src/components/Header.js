@@ -4,6 +4,7 @@ import './Header.css';
 import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';
 
+<<<<<<< HEAD
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +41,35 @@ class Header extends Component {
                 console.log(response);
             })
     }
+=======
+
+// class PopupZ extends Component {
+//     render() {
+//         return (
+//             <div className='popup'>
+//                 <div className='popup_inner'>
+//                     <h3>{this.props.text}</h3>
+//                     <input type="text" width="100px"></input>
+//                     <div>
+//                         <button onClick={this.props.closePopup}>Create</button>
+//                     </div>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+
+class Header extends Component {
+    // constructor(){
+    //     super();
+    //     this.state={showPopup:false};
+    // }
+    // togglePopup() {
+    //     this.setState({
+    //       showPopup: !this.state.showPopup
+    //     });
+    // }
+>>>>>>> 859a41620aacea8aea18cfdcf139b38e23494bda
 
     LogoutPopup(){
         alert('로그아웃 되었습니다!');

@@ -1,30 +1,34 @@
-.zu0p{
-    height: inherit;
-}
 
 .my_content{
     position: relative;
-    width: 100%;
-    height: inherit;
-    background-color: white;
-}
-
-.left{
-    height: inherit;
-    position: relative;
+    min-height: 900px;
+    background-color: gray;
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    padding-left: 20px;
-    color: black;    
 }
-
 .client_channels_list_container{    
     position: relative;
     display: flex;
     flex-direction: row;
 }
+.menu_nav_container{
+    position: relative;
+    flex-direction: column;
+    background-color:white;
+    box-sizing: inherit;
+    padding: 10px;
+    margin: 25px;
 
+}
+
+.client_main_container{
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    padding: 20px; 
+    width: 100%;
+    margin: 25px;
+   
+}
 /* 
 .groups_nav_container{
     position: relative;

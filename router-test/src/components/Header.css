@@ -50,12 +50,12 @@
 
 .MyPageLogoStyle{
   width :99.46px;
-  float : right
+  float : right;
 }
 
 .head{
   margin:25px;
-  flex-Direction : row;
+ 
 }
 
 .a{  

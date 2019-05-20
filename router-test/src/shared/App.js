@@ -12,42 +12,58 @@ class App extends Component {
   render() {
     return (
       <div className="zu0p">
-        
-          <Header 
-          onLogout={this.props.onLogout.bind(this.props)}/>
 
-          <div className="my_content">
-            <div className="left">
-              <div className="client_channels_list_container">
-                {/* <div className="groups_nav_container">
+        <Header
+          onLogout={this.props.onLogout.bind(this.props)} />
+
+        <div className="my_content">
+          <div className="left">
+            <div className="client_channels_list_container">
+              {/* <div className="groups_nav_container">
                 <Groups_Nav />
+
                 </div> */}
-                <div className="menu_nav_container">
-                  <Menu />
-                  <hr width="250px" />
-                  <Channels_Nav />
-                  <hr width="250px" />
-                  <DirectMessage_Nav />
-                </div>
+              <div className="menu_nav_container">
+                <Menu />
+                <hr width="250px" />
+                <Channels_Nav />
+                <hr width="250px" />
+                <DirectMessage_Nav />
               </div>
-              <div className="client_main_container">
-                <Route exact path="/" component={Home} />
-                <Switch>
-                  <Route path="/about/:name" component={About} />
-                  <Route path="/about" component={About} />
-                </Switch>
-                <Route path="/posts" component={Posts} />
-                <Route exact path="/myPage" component={Mypage} />
-                <Route path="/channels" component={Channels} />
-                <Route path="/conference" component={Conference} />
-                <Route path="/direct" component={Direct} />
-                <Route path="/dropOut" component={DropOut} />
-                <Route path="/createGroup" component={CreateGroup} />
+            </div>
+            <div className="client_main_container">
+              <Route exact path="/" component={Home} />
+              <Switch>
+                <Route path="/about/:name" component={About} />
+                <Route path="/about" component={About} />
+              </Switch>
+              <Route path="/posts" component={Posts} />
+              <Route exact path="/myPage" component={Mypage} />
+              <Route path="/channels" component={Channels} />
+              <Route path="/conference" component={Conference} />
+              <Route path="/direct" component={Direct} />
+              <Route path="/dropOut" component={DropOut} />
+              <Route path="/createGroup" component={CreateGroup} />
+            </div>
+
+            </div>
+
+            <div className="client_main_container">
+              <div className="client_main_container_inner">
+              <Route exact path="/" component={Home} />
+              <Switch>
+                <Route path="/about/:name" component={About} />
+                <Route path="/about" component={About} />
+              </Switch>
+              <Route path="/posts" component={Posts} />
+              <Route path="/myPage" component={Mypage} />
+              <Route path="/channels" component={Channels} />
+              <Route path="/conference" component={Conference} />
+              <Route path="/direct" component={Direct} />
               </div>
             </div>
           </div>
         </div>
-    
     );
   }
 }
