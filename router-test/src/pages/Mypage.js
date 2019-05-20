@@ -13,16 +13,16 @@ class Mypage extends Component {
             result: null
         }
     }
-    
+
     componentDidMount() {
         fetch("http://180.71.228.163:8080/showClientInfo?client_ID="+"a33a66a99")
             .then(res => res.json())
             .then(
-                (result) => {
+                (res) => {
                     this.setState({
                         isLoaded: true,
-                        data: result.data,
-                        result: result.result
+                        data: res.data,
+                        result: res.result
                     });
                 },
                 (error) => {

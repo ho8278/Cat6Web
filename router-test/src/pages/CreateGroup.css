@@ -1,0 +1,38 @@
+.create_group_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.create_group_box{
+    margin-left: 25%;
+}
+
+.create_group_banner{
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.create_group_content{
+    display: flex;
+    flex-direction: column;
+}
+
+#create_group_btn{
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-top: 50px; 
+    margin-left: 12%
+}
+
+#create_group_btn:hover {
+    background-color:darkgray;
+    color: white;
+}

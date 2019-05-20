@@ -1,44 +1,57 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
-import { Popup } from 'react-popup';
 import './Header.css';
 import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';
 
-// class PopupZ extends Component {
-//     render() {
-//         return (
-//             <div className='popup'>
-//                 <div className='popup_inner'>
-//                     <h3>{this.props.text}</h3>
-//                     <input type="text" width="100px"></input>
-//                     <div>
-//                         <button onClick={this.props.closePopup}>Create</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
 class Header extends Component {
-    // constructor(){
-    //     super();
-    //     this.state={showPopup:false};
-    // }
-
-    // togglePopup() {
-    //     this.setState({
-    //       showPopup: !this.state.showPopup
-    //     });
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            data: [],
+            result: null
+        }
+    }
+    
+    componentDidMount() {
+        //소속 그룹 가져오기
+        fetch("http://180.71.228.163:8080/viewTeams?clientID="
+        ,{body: "sphong5911"}
+        )
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        data: result.data,
+                        result: result.result
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+            .then(function (response){
+                console.log(response);
+            })
+    }
 
     LogoutPopup(){
         alert('로그아웃 되었습니다!');
         window.location='/';
     }
 
+    CreateGroup =()=>{
+        window.location='/createGroup';
+    }
+
     render(){
+        const { error, isLoaded, data } = this.state;
         return(
             <div className="head">
                 <NavLink to="/" > 
@@ -53,21 +66,19 @@ class Header extends Component {
     
                         <div className="group_invite">
                           <p className="groups_bar">Groups</p>
-                          <button className="add_btn" title="그룹 생성">+</button>
-                          {/* <button className="add_btn" title="그룹 생성" onClick={this.togglePopup.bind(this)}>+</button>                          */}
+                          <button className="add_btn" title="그룹 생성" onClick={this.CreateGroup}>+</button>
                         </div>
-                        {/* {this.state.showPopup ?
-                            <PopupZ 
-                                text="New group name:"
-                            />
-                            :null
-                          } */}
+                        
+                        <section>
+                            {data.team_name}
+                        </section>
+                        
                         <NavLink to="/">group1</NavLink>
                         <NavLink to="/">group2</NavLink>
                         <NavLink to="/">group3</NavLink>    
                         <hr />
                         
-                        <button className="a">회원탈퇴</button>
+                        <NavLink to="/dropOut">회원탈퇴</NavLink>
                     </div>
                 </div>
                 <hr />
