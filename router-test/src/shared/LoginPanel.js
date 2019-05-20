@@ -4,17 +4,16 @@ import 'whatwg-fetch';
 import CatSixLogo from 'img/CatSix.jpg';
 
 class LoginPanel extends Component {
-
-
     constructor() {
         super(...arguments);
         this.state = {
             requestID: '',
             requestPW: '',
-            data: [],
             result: null
         };
 
+        this.client_id = React.createRef();
+        this.client_password = React.createRef();
     }
 
     handleChange = (e) => {
@@ -24,160 +23,66 @@ class LoginPanel extends Component {
     }
 
     tryLogin = (e) => {
-        
-        // let userInfo = {
-        //     'user_id': this.state.requestID,
-        //     'user_pw': this.state.requestPW
-        // };
-        
-        //테스트를 위한 임시 정보
-        let tmpId = "cat6"
-        let tmpPw = "1q2w3e"
-        
 
-        if (this.state.requestID == tmpId && this.state.requestPW == tmpPw) {
-            this.props.onSuccess(this.state.requestID);
-        }
-        else {
-            //오류 팝업 발생   
-            this.setState({
-                requestID: '',
-                requestPW: ''
-            });
-        }
+        let id = this.client_id.current.value;
+        let pw = this.client_password.current.value;
 
+        fetch("http://180.71.228.163:8080/login?client_ID="+id+"&client_password="+pw)
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    // this.setState({
+                    //     result:res.result
+                    // })
+                    alert(JSON.stringify(res.data))
+
+                    if(!res.data.client_id) // 서버에서 반환값 제대로 오면 res.result로 비교
+                    {
+                        this.gotohome()
+                    }
+                    else {
+                        this.client_id.current.value = ''
+                        this.client_password.current.value = ''
+                    }
+                }
+            )
+    }
+
+    gotohome() {
+        let id = this.client_id.current.value;
+        this.props.onSuccess(id);
     }
 
     render() {
         return (
-
             <div className="loginPanel">
                 <div className="CatSixLogo">
                     <img src={CatSixLogo} className="CatSixLogoStyle" />
                 </div>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="requestID">ID</label>
+                <div>
+                    <label>ID</label>
                     <input
                         placeholder="id"
-                        value={this.state.data.client_ID}
-                        onChange={this.handleChange}
+                        ref={this.client_id}
                         name="requestID"
                     />
 
-                    <label htmlFor="requestID">Password</label>
+                    <label>Password</label>
                     <input
                         placeholder="password"
                         type="password"
-                        value={this.state.data.client_password}
-                        onChange={this.handleChange}
+                        ref={this.client_password}
                         name="requestPW"
                     />
                     <div align="center">
                         <button onClick={this.tryLogin}>로그인</button>
                         <button type="register">회원가입</button>
                     </div>
-                </form>
-                {/* <h2>id : cat6 <br></br>pw : 1q2w3e</h2> */}
+                </div>
             </div>
-
         );
     }
 }
+
 export default LoginPanel;
-
-
-
-// import React, { Component, PropTypes} from 'react';
-// import { Router } from 'react-dom';
-// import App from './App';
-// import './LoginPanel.css'
-// import 'whatwg-fetch';
-// import CatSixLogo from 'img/CatSix.jpg';
-
-// class LoginPanel extends Component {
-//     constructor() {
-//         super(...arguments);
-//         this.state = {
-//             isLoaded: false,
-//             requestID: '',
-//             requestPW: '',
-//             data:[],
-//             result: null
-//         };
-
-//     }
-
-//     handleChange = (e) => {
-//         this.setState({
-//             [e.target.name]: e.target.value
-//         })
-//     }
-
-//     tryLogin = () => {
-//         fetch("http://180.71.228.163:8080/login?client_ID="+ this.state.requestID +"&client_password="+ this.state.requestPW)
-//             .then(res => res.json())
-//             .then(
-//                 (res) => {
-//                     if(res.result == 200) {
-//                         alert("정상적 로그인")
-//                         this.props.onSuccess(this.state.requestID);
-//                     }
-//                     else{
-//                         alert('아이디 또는 비밀번호가 틀렸습니다');
-//                     }
-//                 },
-//                 (error) => {
-//                     this.setState({
-//                         isLoaded: true,
-//                         // error
-//                     });
-//                 }
-//             )
-//             .then(function (response){
-//                 console.log(response);
-//             })
-        
-//     }
-
-//     render() {
-//         return (
-
-//             <div className = "loginPanel">
-//                 <div className = "CatSixLogo">
-//                 <img src={CatSixLogo} className="CatSixLogoStyle"/>
-//                 </div>
-                
-//                 <form onSubmit={this.handleSubmit}>
-//                     <label htmlFor="requestID">ID</label>
-//                     <input
-//                         placeholder="id"
-//                         value={this.state.data.client_ID}
-//                         onChange={this.handleChange}
-//                         name="requestID"
-//                     />
-
-//                     <label htmlFor="requestID">Password</label>
-//                     <input
-//                         placeholder="password"
-//                         type="password"
-//                         value={this.state.data.client_password}
-//                         onChange={this.handleChange}
-//                         name="requestPW"
-//                     />
-//                     <div align = "center">
-//                     <button onClick={this.tryLogin}>로그인</button>
-//                     <button type="register">회원가입</button>
-//                     </div>
-//                 </form>
-//             </div>
-
-//         );
-//     }
-// }
-
-// // LoginPanel.propTypes={
-// //     onSuccess: PropTypes.function
-// // };
-
-// export default LoginPanel;
