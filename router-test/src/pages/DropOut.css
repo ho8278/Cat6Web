@@ -1,0 +1,33 @@
+.dropOut_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dropOut_banner{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#dropOut_notice{
+    margin-bottom: 50px;
+}
+
+#dropOut_btn{
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 10px; 
+}
+
+#dropOut_btn:hover {
+    background-color:rgb(211, 53, 53);
+    border: 2px solid rgb(211, 53, 53);
+    color: white;
+}

@@ -1,0 +1,37 @@
+.registerPanel {
+    font-family: sans-serif;
+    position:absolute; 
+    top:50%; left:50%;
+    margin-top:-350px; margin-left:-200px; 
+    width:400px; height:300px; 
+  }
+
+  form{
+      position:center;
+  }
+button {
+    padding: 10px 15px;
+    background-color:white;
+    color:black;
+    border: 1px solid #777;
+    background-color: 250ms;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    color:white;
+    background-color: gray;
+  }
+
+  table {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  input {
+    margin-bottom: 0;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #777;
+  }

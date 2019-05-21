@@ -4,11 +4,20 @@
     background-color: gray;
     display: flex;
 }
+
+.left{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .client_channels_list_container{    
     position: relative;
     display: flex;
     flex-direction: row;
 }
+
 .menu_nav_container{
     position: relative;
     flex-direction: column;
@@ -27,6 +36,7 @@
     margin-top: 25px;
     margin-right: 25px;
     margin-bottom: 25px;
+
 }
 
 /* 
@@ -43,3 +53,127 @@
     visibility: visible;
     background-color: darkgray;
 } */
+
+/* .menu_nav_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    background-color: white;
+    box-sizing: inherit;
+    padding: 10px;
+}
+
+.client_main_container{
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    height: inherit;
+    width: 100%;
+} */
+
+/* 
+////////////////////////////////// */
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    float: right;
+    text-Align: center;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    margin-top: 99.46px;
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: darkgray;
+  }
+  
+  .groups_bar{
+    padding-left: 10px;
+    padding-right: 80px;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .CatSixLogoStyle{
+    width : 196px;
+  }
+  
+  .MyPageLogoStyle{
+    width :99.46px;
+    float : right
+  }
+  
+  .head{
+    margin:25px;
+    flex-Direction : row;
+  }
+  
+  .a{  
+    font-size: 15px;
+    border: none;
+    color: black;
+    background-color: #f9f9f9;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 15px;
+    width: 200px;
+  }
+  
+  .group_invite{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  
+  .add_btn{
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    color: black;
+    background-color: #f9f9f9;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .add_btn:hover{
+    background-color: rgb(241, 210, 71);
+    color:black;
+  }
+  
+  hr{
+    color: rgb(196, 195, 195);
+  }

@@ -13,16 +13,16 @@ class Mypage extends Component {
             result: null
         }
     }
-    
+
     componentDidMount() {
         fetch("http://180.71.228.163:8080/showClientInfo?client_ID="+"a33a66a99")
             .then(res => res.json())
             .then(
-                (result) => {
+                (res) => {
                     this.setState({
                         isLoaded: true,
-                        data: result.data,
-                        result: result.result
+                        data: res.data,
+                        result: res.result
                     });
                 },
                 (error) => {
@@ -32,9 +32,14 @@ class Mypage extends Component {
                     });
                 }
             )
-            .then(function (response){
+            .then(function (response) {
                 console.log(response);
             })
+    }
+
+    changeInfo() {
+        
+
     }
 
     render() {
@@ -88,7 +93,7 @@ class Mypage extends Component {
                             </div>
 
                             <div className="change_bt_body">
-                                <button className="user_info_change_btn">Save changes!</button>
+                                <button className="user_info_change_btn" onClick={this.changeInfo}>Save changes!</button>
                             </div>
                         </div>
                     </div>
