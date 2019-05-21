@@ -36,7 +36,7 @@ class DropOut extends Component {
     // }
 
     dropOutClick = () => {
-        fetch("http://180.71.228.163:8080/deleteClient?client_ID=" + "id"
+        fetch("http://180.71.228.163:8080/deleteClient"
             , {method: "DELETE"})
             .then(res => res.json())
             .then(

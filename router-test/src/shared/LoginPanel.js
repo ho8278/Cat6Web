@@ -34,9 +34,7 @@ class LoginPanel extends Component {
                     // this.setState({
                     //     result:res.result
                     // })
-                    alert(JSON.stringify(res.data))
-
-                    if(!res.data.client_id) // 서버에서 반환값 제대로 오면 res.result로 비교
+                    if(res.result == 200) // 서버에서 반환값 제대로 오면 res.result로 비교
                     {
                         this.gotohome()
                     }
