@@ -1,8 +1,7 @@
-
 .my_content{
     position: relative;
-    min-height: 900px;
-    background-color: white;
+    height: 900px;
+    background-color: gray;
     display: flex;
 }
 
@@ -28,15 +27,18 @@
     margin: 25px;
 
 }
-
 .client_main_container{
     position: relative;
     display: inline-block;
     background-color: white;
     padding: 20px; 
     width: 100%;
-    margin: 25px;  
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+
 }
+
 /* 
 .groups_nav_container{
     position: relative;
