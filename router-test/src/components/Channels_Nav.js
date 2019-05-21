@@ -22,7 +22,7 @@ class Channels_Nav extends Component {
             </div>
             <nav>
               <ul className="channels_list" style={listStyle}>
-                <li className="channel_item"><NavLink to="/channels" activeStyle={activeStyle} className="channel_link">#channel</NavLink></li>
+                <li className="channel_item"><NavLink to="/channels" activeStyle={activeStyle} className="channel_link">#Main-Channel</NavLink></li>
               </ul>
             </nav>
           </div>
