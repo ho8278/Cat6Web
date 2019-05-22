@@ -1,12 +1,13 @@
 .loginPanel {
     font-family: sans-serif;
     position:absolute; 
-    top:50%; left:50%;
-    margin-top:-300px; margin-left:-100px; 
-    width:200px; height:300px; 
-  }
+    top:50%; 
+    margin-top:-300px;
+    margin-left:40%;
+    width:400px; height:300px; 
+}
 
-  legend {
+legend {
     padding: 1em;
 }
 .loginPanel .CatSixLogo{
@@ -17,50 +18,41 @@
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
-  }
+}
   
-
-  
-  .loginPanel label {
+.loginPanel label {
     display: block;
     width: 100%;
     margin-bottom: 10px;
     height: 22px;
-  }
+}
   
-  .loginPanel input {
+.loginPanel input {
     display: block;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #777;
-  }
+}
   
-  /* input.error {
-    border-color: red;
-  }
+.loginPanel button {    
+    font-size: 15px;
+    font-weight: bold;
+    width: 170px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white; 
+    color: rgb(78, 78, 78);
+    border: 2px solid rgb(78, 78, 78);
+    margin: 15px;
+}
   
-  .input-feedback {
-    color: rgb(235, 54, 54);
-    margin-top: -15px;
-    font-size: 14px;
-    margin-bottom: 20px;
-  } */
-  
-  .loginPanel button {
-    padding: 10px 15px;
-    background-color: rgb(70, 153, 179);
-    color: white;
-    border: 1px solid rgb(70, 153, 179);
-    background-color: 250ms;
-    margin-right: 10px;
-  }
-  
-  .loginPanel button:hover {
+.loginPanel button:hover {
     cursor: pointer;
-    background-color: white;
-    color: rgb(70, 153, 179);
-  }
+    background-color: rgb(241, 210, 71);
+    border: 2px solid rgb(241, 210, 71);
+    color: black;
+}
 
   

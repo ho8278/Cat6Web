@@ -15,7 +15,8 @@ class Mypage extends Component {
     }
 
     componentDidMount() {
-        fetch("http://180.71.228.163:8080/showClientInfo?client_ID="+"a33a66a99")
+        fetch("http://180.71.228.163:8080/showMyInfo"
+        , {credentials: "same-origin"})
             .then(res => res.json())
             .then(
                 (res) => {
@@ -30,6 +31,7 @@ class Mypage extends Component {
                         isLoaded: true,
                         error
                     });
+                    alert(error);
                 }
             )
             .then(function (response) {
@@ -45,7 +47,7 @@ class Mypage extends Component {
     render() {
         const { error, isLoaded, data } = this.state;
         if (error) {
-            return <div><h1>Error:</h1>{error.message}</div>;
+            return <div><h1>Error:</h1>{error.message} </div>;
         }
         else if (!isLoaded) {
             return (
@@ -68,7 +70,7 @@ class Mypage extends Component {
                                 <div className="user_info_text">
                                     <div className="user_info_text_item">
                                         <div><label>Full name</label></div>
-                                        <input id="items" type="text" name="input_name" placeholder={data.client_name}></input>
+                                        <input id="items" type="text"  placeholder={data.client_name}></input>
                                     </div>
 
                                     <div className="user_info_text_item">

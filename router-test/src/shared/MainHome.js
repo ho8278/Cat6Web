@@ -1,14 +1,16 @@
 
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import App from './App';
 import LoginPanel from './LoginPanel';
 import RegisterPanel from './RegeisterPanel';
+import { withCookies, Cookies, ReactCookieProps, CookiesProvider, useCookies } from 'react-cookie';
 
 class MainHome extends Component {
     constructor() {
         super(...arguments);
         this.state = {
-            userId: '',
+            cookie: '',
         };
 
    }
@@ -19,37 +21,42 @@ class MainHome extends Component {
    //    };
    // }
 
-   onLogin(adminId){
+   onLogin(cook){
       
-      this.userId = adminId;
+      this.cookie = cook;
       this.setState({
-         userId: adminId
+         cookie: cook
       });
     }
 
-   onLogout(){
-      this.setState({
-         userId:''
-      });
-   }
+   // onLogout(){
+   //    this.setState({
+   //       userId:''
+   //    });
+   // }
 
    onRegister(){
       this.setState({
          registerFlag: true
       });
    }
-
+   
    render(){
       //return<RegisterPanel/>
-      if(!this.state.userId){
-         return <LoginPanel 
-               onSuccess={this.onLogin.bind(this)} 
-               />;
+      if(!this.state.cookie){
+         return (
+            <div>
+               
+               <LoginPanel onSuccess={this.onLogin.bind(this)} />
+               <Route path="/signup" component={RegisterPanel} />
+            </div>            
+         );
       }
       else{
          return <App
-          userId={this.state.userId}
-         onLogout={this.onLogout.bind(this)} />;
+         cookie={this.state.cookie}
+         // onLogout={this.onLogout.bind(this)}
+         />;
       }      
    }
 }

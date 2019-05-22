@@ -1,37 +1,56 @@
 .registerPanel {
     font-family: sans-serif;
-    position:absolute; 
-    top:50%; left:50%;
-    margin-top:-350px; margin-left:-200px; 
-    width:400px; height:300px; 
-  }
+    position:absolute;  
+    margin-top: 95px; 
+    margin-left: 40%;
+    width: 500px; 
+    height:800px; 
+    background-color: white;
+}
 
-  form{
+.content{
+  text-align: left;
+}
+
+#title_text{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+  margin-left: 50px;
+}
+
+form{
       position:center;
-  }
-button {
-    padding: 10px 15px;
-    background-color:white;
-    color:black;
-    border: 1px solid #777;
-    background-color: 250ms;
-    margin-right: 10px;
-  }
+      margin: 10px;
+}
+
+#signup_btn {
+  font-size: 15px;
+  font-weight: bold;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white; 
+  color: rgb(78, 78, 78);
+  border: 2px solid rgb(78, 78, 78);
+  margin-left:110px;
+  margin-top: 20px;
+}
   
-  button:hover {
+#signup_btn:hover {
     cursor: pointer;
     color:white;
-    background-color: gray;
-  }
+    background-color: rgb(78, 78, 78);
+}
 
-  table {
+table {
     text-align: center;
     vertical-align: middle;
-  }
+}
 
-  input {
+input {
     margin-bottom: 0;
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #777;
-  }
+}
