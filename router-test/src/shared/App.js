@@ -3,27 +3,33 @@ import { Route, Switch, NavLink } from 'react-router-dom';
 import { Home, About, Posts, Mypage, Channels, Conference, Direct, DropOut, CreateGroup } from 'pages';
 import Menu from 'components/Menu';
 import Header from 'components/Header';
-import Groups_Nav from 'components/Groups_Nav';
 import Channels_Nav from 'components/Channels_Nav';
 import DirectMessage_Nav from 'components/DirectMessage_Nav';
 import './App.css';
+import InviteGroup from '../pages/InviteGroup';
+import Invite from '../pages/Invite';
 
 class App extends Component {
+  constructor() {
+    super(...arguments);
+    this.state = {
+        cookie: this.props.cookie
+    };
+
+  }
+
   render() {
+    
     return (
       <div className="zu0p">
-
-        <Header
-          onLogout={this.props.onLogout.bind(this.props)} />
+        <Header cookie = {this.state.cookie}
+          // onLogout={this.props.onLogout.bind(this.props)}
+           />
 
         <div className="my_content">
 
           <div className="left">
             <div className="client_channels_list_container">
-              {/* <div className="groups_nav_container">
-                <Groups_Nav />
-
-                </div> */}
               <div className="menu_nav_container">
                 <Menu />
                 <hr width="250px" />
@@ -46,6 +52,8 @@ class App extends Component {
               <Route path="/direct" component={Direct} />
               <Route path="/dropOut" component={DropOut} />
               <Route path="/createGroup" component={CreateGroup} />
+              <Route path="/inviteGroup" component={InviteGroup} />
+              <Route path="invite" component={Invite}/>
             </div>
 
           </div>

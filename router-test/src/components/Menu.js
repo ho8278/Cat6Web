@@ -17,8 +17,9 @@ class Menu extends Component {
     return(
       <div>
         <div className="group_container">
-          <label className="group_name">Group_name</label>          
-          <button className="add_btn" title="그룹초대">+</button>
+          <label className="group_name">Menu</label>          
+          {/* <button className="add_btn" title="그룹초대">+</button> */}          
+          <NavLink to="/inviteGroup" className="add_btn">+</NavLink>
         </div>
 
         <div className="menu_list_container">

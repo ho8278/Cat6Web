@@ -4,52 +4,58 @@ import './Header.css';
 import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';
 
-class Header extends Component {
+class Header extends Component {    
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
             data: [],
-            result: null
+            result: null,
+            userId: '',
+            cookie: this.props.cookie
         }
     }
     
-    componentDidMount() {
-        //소속 그룹 가져오기
-        fetch("http://180.71.228.163:8080/viewTeams?clientID="
-        ,{body: "sphong5911"}
-        )
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        data: result.data,
-                        result: result.result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-            .then(function (response){
-                console.log(response);
-            })
-    }
+    // componentDidMount() {
+    //     //소속 그룹 가져오기
+    //     fetch("http://180.71.228.163:8080/viewTeams?clientID="+"sphong5911")
+    //         .then(res => res.json())
+    //         .then(
+    //             (result) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     data: result.data,
+    //                     result: result.result
+    //                 });
+    //             },
+    //             (error) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     error
+    //                 });
+    //             }
+    //         )
+    //         .then(function (response){
+    //             console.log(response);
+    //         })
+    // }
 
     LogoutPopup(){
-        alert('로그아웃 되었습니다!');
+        alert('로그아웃 되었습니다');
         window.location='/';
+        // fetch("http://180.71.228.163:8080/logout")
+        //     .then(res => res.json())
+        //     .then(
+        //         (result) => {
+        //             alert(result);
+        //             window.location='/';
+        //         },
+        //         (error) => {
+        //         }
+        //     )
     }
-
-    CreateGroup =()=>{
-        window.location='/createGroup';
-    }
-
+        
     render(){
         const { error, isLoaded, data } = this.state;
         return(
@@ -60,20 +66,20 @@ class Header extends Component {
                 <div className="dropdown" >
                 <img src={MyPageLogo} className="MyPageLogoStyle"/>
                     <div className="dropdown-content">
-                        <NavLink to="/mypage">회원정보 수정</NavLink>
+                        <NavLink to="/mypage" userId={this.userId}>회원정보 수정</NavLink>
                         <button className="a" onClick={this.LogoutPopup}>로그아웃</button>
                         <hr />
     
                         <div className="group_invite">
-                          <p className="groups_bar">Groups</p>
-                          <button className="add_btn" title="그룹 생성" onClick={this.CreateGroup}>+</button>
+                          <p className="groups_bar">Groups</p>                          
+                          <NavLink to="/createGroup" className="add_btn">+</NavLink>
                         </div>
                         
-                        <section>
+                        {/* <section>
                             {data.team_name}
-                        </section>
+                        </section> */}
                         
-                        <NavLink to="/">group1</NavLink>
+                        <NavLink to="/">{this.props.cookie}</NavLink>
                         <NavLink to="/">group2</NavLink>
                         <NavLink to="/">group3</NavLink>    
                         <hr />

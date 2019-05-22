@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LoginPanel.css'
 import 'whatwg-fetch';
 import CatSixLogo from 'img/CatSix.jpg';
+import { withCookies, Cookies, ReactCookieProps, CookiesProvider, useCookies } from 'react-cookie';
 
 class LoginPanel extends Component {
     constructor() {
@@ -9,7 +10,8 @@ class LoginPanel extends Component {
         this.state = {
             requestID: '',
             requestPW: '',
-            result: null
+            result: null,
+            cookie: ''
         };
 
         this.client_id = React.createRef();
@@ -23,32 +25,53 @@ class LoginPanel extends Component {
     }
 
     tryLogin = (e) => {
+        var myHeaders = new Headers();
 
         let id = this.client_id.current.value;
         let pw = this.client_password.current.value;
 
-        fetch("http://180.71.228.163:8070/login?client_ID="+id+"&client_password="+pw)
-            .then(res => res.json())
+        fetch("http://180.71.228.163:8080/login?client_ID="+id+"&client_password="+pw
+        // ,{
+        //     headers: {
+        //         "cookie": "JSESSIONID=D2C89674AC1A585C531FFEC59C104BBE"
+        //       } 
+        // }
+        )
+            .then(res=>res.json())
             .then(
-                (res) => {
-                    // this.setState({
-                    //     result:res.result
-                    // })
-                    if(res.result == 200) // 서버에서 반환값 제대로 오면 res.result로 비교
+                (res) => {   
+                    console.log(res) 
+                    this.setState({
+                        cookie: res.cookie
+                    })          
+                    if(res.result == 200)
                     {
-                        this.gotohome()
+                        // alert(document.cookie)
+                        this.gotohome();
+                        console.log(res.headers); 
+                        this.myHeaders = res.headers;
+                        console.log(myHeaders);
+                        // alert(myHeaders);
                     }
                     else {
                         this.client_id.current.value = ''
                         this.client_password.current.value = ''
                     }
-                }
+                    //res.headers.get('Set_Cookie');
+                    // setCookie(id, res.header.get(Set-Cookies))
+                }                
             )
     }
 
     gotohome() {
-        let id = this.client_id.current.value;
-        this.props.onSuccess(id);
+        // let id = this.client_id.current.value; 
+        // this.props.onSuccess(id);
+        let cook = this.state.cookie;
+        this.props.onSuccess(cook);
+    }
+
+    trySignup(){
+        window.location.href='/signup';
     }
 
     render() {
@@ -74,8 +97,8 @@ class LoginPanel extends Component {
                         name="requestPW"
                     />
                     <div align="center">
-                        <button onClick={this.tryLogin}>로그인</button>
-                        <button type="register">회원가입</button>
+                        <button id="btn" onClick={this.tryLogin}>로그인</button>
+                        <button id="btn" onClick={this.trySignup}>회원가입</button>
                     </div>
                 </div>
             </div>

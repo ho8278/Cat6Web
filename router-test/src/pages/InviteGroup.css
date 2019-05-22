@@ -22,6 +22,10 @@ input[type="text"]{
     margin-top: 20px;
 }
 
+/* .go_invite{
+    text-align: center;
+} */
+
 #go_btn{
     font-size: 22px;
     width: 65px;
@@ -42,7 +46,7 @@ input[type="text"]{
     background-color: white; 
     color: darkgray;
     border: 2px solid darkgray;   
-    margin: 10px; 
+    margin: 30px; 
     padding: 10px;
 }
 
@@ -55,4 +59,17 @@ input[type="text"]{
     background-color:rgb(5, 128, 60);
     border: 2px solid rgb(5, 128, 60);
     color: white;
+}
+
+.view_client_info{
+    text-align: left;
+    margin-left: 42%;
+    margin-top: 60px;
+}
+
+#vci{
+    /* text-align: left; */
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px;
 }
