@@ -1,4 +1,104 @@
-.ChatBox{
+#ChatBox{
  overflow-y: auto;
- height: 550px;
+ height: 650px;
+ border-color: black;
+ border-width: 2px;
+ border-style: solid;
+ border-radius: 10px 10px 10px 10px;
+margin-bottom: 15px;
+
+}
+
+.ChatForm{
+padding: 10px;
+height: 40px;
+border-color: black;
+border-width: 2px;
+border-style: solid;
+border-radius: 10px 10px 10px 10px;
+
+
+}
+
+.chat-head{
+    padding: 15px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 15px;
+
+
+
+}
+.chattingBox{
+    display: inline;
+    min-width: 900px;
+  
+}
+.transmit{
+    color: white;
+   
+}
+
+p{
+   vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline;
+    font-weight: bold;
+    
+}
+
+.mButton{
+    width: 80px;
+    height: 38px;
+    display: inline;
+    background-color: black;
+    float: right;
+   
+}
+.mButton:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.regist{
+
+    margin-left: 10px;
+    width: 80px;
+    height: 38px;
+    display: inline;
+    background-color: black;
+
+
+}
+
+.regist:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.headname{
+
+    display: inline;
+}
+
+.MessageBox{
+
+display: inline;
+
+}
+
+
+.NameBoxIn{
+    display: inline;
+    width: 100px;
+
+}
+
+.RoomBoxIn{
+    display: inline;
+    width: 100px;
+
 }
