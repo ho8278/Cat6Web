@@ -120,7 +120,7 @@ class RegisterPanel extends Component {
                             </tr>
                         </table>
                         <div align = "right">
-                        <button type="submit">제출</button>
+                        <button className="registerButton" type="submit">제출</button>
                         </div>
                     </fieldset>
                 </form>

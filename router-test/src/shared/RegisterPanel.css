@@ -9,7 +9,8 @@
   form{
       position:center;
   }
-button {
+  
+  .registerButton {
     padding: 10px 15px;
     background-color:white;
     color:black;
@@ -18,7 +19,7 @@ button {
     margin-right: 10px;
   }
   
-  button:hover {
+ .registerButton:hover {
     cursor: pointer;
     color:white;
     background-color: gray;

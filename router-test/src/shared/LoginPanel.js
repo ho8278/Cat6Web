@@ -27,7 +27,7 @@ class LoginPanel extends Component {
         let id = this.client_id.current.value;
         let pw = this.client_password.current.value;
 
-        fetch("http://180.71.228.163:8080/login?client_ID="+id+"&client_password="+pw)
+        fetch("http://180.71.228.163:8070/login?client_ID="+id+"&client_password="+pw)
             .then(res => res.json())
             .then(
                 (res) => {
