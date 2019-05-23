@@ -11,38 +11,37 @@ class InviteGroup extends React.Component {
             data: [],
             result: null,
             searchDone: false,
-            search_id : ''
+            search_id : '',
+            teams: [],
+            t_name: []
         };
 
         this.client_id = React.createRef();
         this.view_client_id = React.createRef();        
     }
 
-    // 세션 해결 후 /viewTeams해야함
-    // componentDidMount() {
-    //     fetch("http://180.71.228.163:8080/showMyInfo"
-    //     , {credentials: "same-origin"})
-    //         .then(res => res.json())
-    //         .then(
-    //             (res) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     data: res.data,
-    //                     result: res.result
-    //                 });
-    //             },
-    //             (error) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     error
-    //                 });
-    //                 alert(error);
-    //             }
-    //         )
-    //         .then(function (response) {
-    //             console.log(response);
-    //         })
-    // }
+    componentDidMount() {
+        let id = window.sessionStorage.getItem('id');
+
+        fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)
+            //.then(res => res.json())
+            .then(
+                (res) => {
+                    alert(res)
+                    console.log(res.data)
+                    this.setState({
+                        teams: res.data
+                        
+                    });
+                },
+                (error) => {                    
+                    alert(error);
+                }
+            )
+            .then(function (response) {
+                console.log(response);
+            })
+    }
 
     findInviteGroup = (e) => {
         let id = this.client_id.current.value;
@@ -59,9 +58,6 @@ class InviteGroup extends React.Component {
                             result: res.result,
                             search_id: res.data.client_ID
                         });
-
-                        // this.view_client_id.current.value = '1234';
-                        // <Route to="/invite" component={Invite}/>
                     }
                     else {
                         alert('해당 아이디가 존재하지 않습니다');
@@ -77,7 +73,7 @@ class InviteGroup extends React.Component {
         
         let id = this.client_id.current.value;
 
-        fetch("http://180.71.228.163:8080/inviteTeam?client_ID=" + id + "&team_ID="
+        fetch("http://180.71.228.163:8070/inviteTeam?client_ID=" + id + "&team_ID="
         , {
             method: "POST"
         })
@@ -101,6 +97,8 @@ class InviteGroup extends React.Component {
         let getID = this.state.data.client_ID;
         let getName = this.state.data.client_name;
 
+        let t_list = this.state.t_name;
+
         return (
             <div>
                 <div className="dm_container">
@@ -108,6 +106,10 @@ class InviteGroup extends React.Component {
                     <div className="go">
                         <input ref={this.client_id} type="text" placeholder=" Find the ID of friend to invite"></input>
                         <button id="go_btn" onClick={this.findInviteGroup}>Find</button>
+                    </div>
+
+                    <div>
+                        <li>{t_list}</li>
                     </div>
                     
                     {/* <label>{this.searchDone? this.search_id : '1234'}</label> */}

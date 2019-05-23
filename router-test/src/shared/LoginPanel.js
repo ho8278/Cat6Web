@@ -64,8 +64,9 @@ class LoginPanel extends Component {
     }
 
     gotohome() {
-        // let id = this.client_id.current.value; 
+        let id = this.client_id.current.value; 
         // this.props.onSuccess(id);
+        window.sessionStorage.setItem('id', id);
 
         let cook = this.state.cookie;
         this.props.onSuccess(cook);

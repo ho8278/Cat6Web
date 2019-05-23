@@ -11,17 +11,26 @@ class Mypage extends Component {
             isLoaded: false,
             data: [],
             result: null,
-            cookie: this.props.cookie
+            cookie: this.props.cookie,
+            // client_name:'',
+            // client_nickname:'',
+            // client_pw:''
         }
+
+        this.name = React.createRef();
+        this.nickname = React.createRef();
+        this.pw = React.createRef();
     }
 
     componentDidMount() {
-        alert(this.state.cookie)
-        fetch("http://180.71.228.163:8080/showMyInfo"
-        , {
-            credentials: "same-origin",
-            headers: { 'set-Cookie': this.state.cookie }
-        })
+        let id = window.sessionStorage.getItem('id');
+
+        fetch("http://180.71.228.163:8080/showClientInfo?client_ID="+id
+        // , {
+        //     credentials: "same-origin",
+        //     headers: { 'set-Cookie': this.state.cookie }
+        // }
+        )
             .then(res => res.json())
             .then(
                 (res) => {
@@ -45,8 +54,32 @@ class Mypage extends Component {
     }
 
     changeInfo() {
-        
+        let id = window.sessionStorage.getItem('id');
 
+        let name = this.name.current.value;
+        let pw = this.password.current.value;
+        let nickname = this.nickname.current.value;
+
+        fetch("http://180.71.228.163:8080/updateClient/n?client_ID="+id
+        +"client_password="+pw
+        + "&client_name="+name
+        + "&client_nickname="+nickname
+        + "&propfile_picture="+""
+        ,{
+            method:"POST"
+        })
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    alert('회원정보수정 완료')
+                },
+                (error) => {
+                    alert(error)
+                    this.client_name.current.value=''
+                    this.client_nickname.current.value=''
+                    this.client_pw.current.value=''
+                }
+            )
     }
 
     render() {
@@ -75,18 +108,29 @@ class Mypage extends Component {
                                 <div className="user_info_text">
                                     <div className="user_info_text_item">
                                         <div><label>Full name</label></div>
-                                        <input id="items" type="text"  placeholder={data.client_name}></input>
+                                        <input  id="items" 
+                                                type="text" 
+                                                ref={this.name}
+                                                placeholder={data.client_name}
+                                        />
                                     </div>
 
                                     <div className="user_info_text_item">
                                         <div><label>Nickname</label></div>
-                                        <input id="items" type="text" name="input_nickname" placeholder={data.client_nickname}></input>
+                                        <input  id="items" 
+                                                type="text" 
+                                                ref={this.nickname}
+                                                placeholder={data.client_nickname}
+                                        />
                                         <button className="check_overlap_btn">중복확인</button>
                                     </div>
 
                                     <div className="user_info_text_item">
                                         <div><label>Password</label></div>
-                                        <input id="items" type="password" name="input_pw"></input>
+                                        <input  id="items" 
+                                                type="password" 
+                                                ref={this.pw}
+                                        />
                                         <div>
                                             <input id="items" type="password" name="check_input_pw"></input>
                                             <button className="check_pw_btn">비밀번호 확인</button>

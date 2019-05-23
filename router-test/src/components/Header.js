@@ -19,19 +19,13 @@ class Header extends Component {
     }
     
     componentDidMount(){
-           
-        axios.get("http://180.71.228.163:8080/viewTeams"
-        , {
-            // Cookie: this.props.cookie,
-            withCredentials: true,
-            header: {
-                'cookie' : this.props.cookie
-            }
-          }
-        )
+        
+        let id = window.sessionStorage.getItem('id');
+
+        fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)        
           .then(res=>res.json())
           .then((res) => {
-                alert('success')
+                // alert('success')
                 console.log(res.data);
           })
           .catch(function (error) {
