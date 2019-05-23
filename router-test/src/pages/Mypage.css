@@ -53,6 +53,17 @@ label{
     font-size: 20px;    
 }
 
+#ext{
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 20px;
+    height: 20px;
+    /* padding: 3px;
+    margin-bottom: 4px;     */
+    font-size: 30px;
+}
+
 .user_info_text_item{
     margin-bottom: 40px;
 }

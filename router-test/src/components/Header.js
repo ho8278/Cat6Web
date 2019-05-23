@@ -26,7 +26,7 @@ class Header extends Component {
           .then(res=>res.json())
           .then((res) => {
                 // alert('success')
-                console.log(res.data);
+                // console.log(res.data);
           })
           .catch(function (error) {
             alert('error')

@@ -22,6 +22,12 @@ input[type="text"]{
     margin-top: 20px;
 }
 
+.check_group{
+    text-align: left;
+    margin-left: 40%;
+    margin-bottom: 20px;
+}
+
 /* .go_invite{
     text-align: center;
 } */

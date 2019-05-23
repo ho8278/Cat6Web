@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { NavLink, Route } from 'react-dom';
 import './InviteGroup.css';
 import Invite from './Invite';
@@ -13,7 +13,7 @@ class InviteGroup extends React.Component {
             searchDone: false,
             search_id : '',
             teams: [],
-            t_name: []
+            selected_team_id:''
         };
 
         this.client_id = React.createRef();
@@ -24,23 +24,20 @@ class InviteGroup extends React.Component {
         let id = window.sessionStorage.getItem('id');
 
         fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)
-            //.then(res => res.json())
+            .then(res => res.json())
             .then(
-                (res) => {
-                    alert(res)
+                (res) => {                    
                     console.log(res.data)
+                    console.log(res.data[0])
                     this.setState({
                         teams: res.data
-                        
-                    });
+                    })
+                    console.log(this.state.teams)
                 },
                 (error) => {                    
                     alert(error);
                 }
             )
-            .then(function (response) {
-                console.log(response);
-            })
     }
 
     findInviteGroup = (e) => {
@@ -71,9 +68,10 @@ class InviteGroup extends React.Component {
 
     invite = (e) => {
         
-        let id = this.client_id.current.value;
+        const id = this.client_id.current.value;
+        const team_id = this.state.selected_team_id;
 
-        fetch("http://180.71.228.163:8070/inviteTeam?client_ID=" + id + "&team_ID="
+        fetch("http://180.71.228.163:8080/inviteTeam?client_ID=" + id + "&team_ID=" + team_id
         , {
             method: "POST"
         })
@@ -81,7 +79,7 @@ class InviteGroup extends React.Component {
             .then(
                 (res) => {
                     console.log(res)
-                    if(res.result == 200) 
+                    if(res == 200) 
                     {
                         alert('초대 완료!')
                     }
@@ -92,27 +90,35 @@ class InviteGroup extends React.Component {
             )
     }
 
+    setSelectedID(id){
+        this.setState({
+            selected_team_id: id
+        })
+    }
+
     render() {
         let isLego = this.state.searchDone;
         let getID = this.state.data.client_ID;
         let getName = this.state.data.client_name;
-
-        let t_list = this.state.t_name;
+        
+        let t_list = this.state.teams;
 
         return (
             <div>
                 <div className="dm_container">
                     <div className="dm_banner">Invite friends to your group</div>
+  
+                    <div className="check_group">                       
+                           {t_list.map((name) =>{
+                               return(<GroupInfo onSuccess={this.setSelectedID.bind(this)} name = {name.team_name} id = {name.team_ID}/>)
+                           })}
+                    </div>
+                    
                     <div className="go">
                         <input ref={this.client_id} type="text" placeholder=" Find the ID of friend to invite"></input>
                         <button id="go_btn" onClick={this.findInviteGroup}>Find</button>
                     </div>
 
-                    <div>
-                        <li>{t_list}</li>
-                    </div>
-                    
-                    {/* <label>{this.searchDone? this.search_id : '1234'}</label> */}
                     {isLego == true &&
                         
                         // this.view  
@@ -137,5 +143,31 @@ class InviteGroup extends React.Component {
         );
     }
 };
+
+class GroupInfo extends Component{
+    
+    constructor() {
+        super(...arguments);
+        this.state = {
+            id : this.props.id,
+            name : this.props.name
+        }
+        this.clickedRadio = this.clickedRadio.bind(this)
+    }
+
+    clickedRadio(){
+        this.props.onSuccess(this.state.id);
+    }
+
+    render(){
+        return (
+            <div>
+            <label>
+                <input type = "radio" name="group" onClick={this.clickedRadio}></input>{this.state.name}
+            </label>
+            </div>
+        )
+    }
+}
 
 export default InviteGroup;
