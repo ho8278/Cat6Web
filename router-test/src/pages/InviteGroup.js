@@ -73,7 +73,8 @@ class InviteGroup extends React.Component {
             )
     }
 
-    invite(){
+    invite = (e) => {
+        
         let id = this.client_id.current.value;
 
         fetch("http://180.71.228.163:8080/inviteTeam?client_ID=" + id + "&team_ID="
@@ -83,11 +84,12 @@ class InviteGroup extends React.Component {
             .then(res => res.json())
             .then(
                 (res) => {
+                    console.log(res)
                     if(res.result == 200) 
                     {
                         alert('초대 완료!')
                     }
-                    else {
+                    else {                        
                         alert('초대 실패')
                     }
                 }                

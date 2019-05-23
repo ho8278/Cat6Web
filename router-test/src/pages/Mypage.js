@@ -10,13 +10,18 @@ class Mypage extends Component {
             error: null,
             isLoaded: false,
             data: [],
-            result: null
+            result: null,
+            cookie: this.props.cookie
         }
     }
 
     componentDidMount() {
+        alert(this.state.cookie)
         fetch("http://180.71.228.163:8080/showMyInfo"
-        , {credentials: "same-origin"})
+        , {
+            credentials: "same-origin",
+            headers: { 'set-Cookie': this.state.cookie }
+        })
             .then(res => res.json())
             .then(
                 (res) => {

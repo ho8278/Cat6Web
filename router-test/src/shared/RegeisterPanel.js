@@ -35,7 +35,7 @@ class RegisterPanel extends Component {
         let name = this.client_name.current.value;
         let nickname = this.client_nickname.current.value;
         //let profile = this.profile_picture.current.value;
-        let profile="s";
+        let profile="";
 
         fetch("http://180.71.228.163:8080/createClient?client_ID="+id
             +"&client_password="+pw

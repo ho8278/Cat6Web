@@ -31,11 +31,11 @@ class App extends Component {
           <div className="left">
             <div className="client_channels_list_container">
               <div className="menu_nav_container">
-                <Menu />
+                <Menu cookie = {this.state.cookie} />
                 <hr width="250px" />
-                <Channels_Nav />
+                <Channels_Nav cookie = {this.state.cookie} />
                 <hr width="250px" />
-                <DirectMessage_Nav />
+                <DirectMessage_Nav cookie = {this.state.cookie} />
               </div>
             </div>
 

@@ -3,6 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 import './Header.css';
 import CatSixLogo from 'img/CatSix.jpg';
 import MyPageLogo from 'img/MyPageLogo.jpg';
+import axios from 'axios';
 
 class Header extends Component {    
     constructor(props) {
@@ -17,6 +18,26 @@ class Header extends Component {
         }
     }
     
+    componentDidMount(){
+           
+        axios.get("http://180.71.228.163:8080/viewTeams"
+        , {
+            // Cookie: this.props.cookie,
+            withCredentials: true,
+            header: {
+                'cookie' : this.props.cookie
+            }
+          }
+        )
+          .then(res=>res.json())
+          .then((res) => {
+                alert('success')
+                console.log(res.data);
+          })
+          .catch(function (error) {
+            alert('error')
+          });
+    }
     // componentDidMount() {
     //     //소속 그룹 가져오기
     //     fetch("http://180.71.228.163:8080/viewTeams?clientID="+"sphong5911")
@@ -66,7 +87,7 @@ class Header extends Component {
                 <div className="dropdown" >
                 <img src={MyPageLogo} className="MyPageLogoStyle"/>
                     <div className="dropdown-content">
-                        <NavLink to="/mypage" userId={this.userId}>회원정보 수정</NavLink>
+                        <NavLink to="/mypage" cookie={this.state.cookie}>회원정보 수정</NavLink>
                         <button className="a" onClick={this.LogoutPopup}>로그아웃</button>
                         <hr />
     
