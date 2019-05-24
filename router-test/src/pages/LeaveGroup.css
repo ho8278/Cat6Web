@@ -1,0 +1,58 @@
+.leave_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.leave_banner{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.leave{
+    margin-top: 20px;
+}
+
+.check_group{
+    text-align: left;
+    margin-left: 40%;
+    margin-bottom: 20px;
+}
+
+/* .go_invite{
+    text-align: center;
+} */
+
+#leave_btn{
+    font-size: 22px;
+    width: 85px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin: 10px; 
+    padding: 10px;
+}
+
+#leave_btn:hover{
+    background-color:rgb(199, 48, 48);
+    color: white;
+    border: 2px solid rgb(199, 48, 48); 
+}
+
+.view_client_info{
+    text-align: left;
+    margin-left: 42%;
+    margin-top: 60px;
+}
+
+#vci{
+    /* text-align: left; */
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px;
+}

@@ -14,47 +14,10 @@ class Header extends Component {
             data: [],
             result: null,
             userId: '',
-            cookie: this.props.cookie
+            cookie: this.props.cookie,
+            teams: []
         }
     }
-    
-    componentDidMount(){
-        
-        let id = window.sessionStorage.getItem('id');
-
-        fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)        
-          .then(res=>res.json())
-          .then((res) => {
-                // alert('success')
-                // console.log(res.data);
-          })
-          .catch(function (error) {
-            alert('error')
-          });
-    }
-    // componentDidMount() {
-    //     //소속 그룹 가져오기
-    //     fetch("http://180.71.228.163:8080/viewTeams?clientID="+"sphong5911")
-    //         .then(res => res.json())
-    //         .then(
-    //             (result) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     data: result.data,
-    //                     result: result.result
-    //                 });
-    //             },
-    //             (error) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     error
-    //                 });
-    //             }
-    //         )
-    //         .then(function (response){
-    //             console.log(response);
-    //         })
-    // }
 
     LogoutPopup(){
         alert('로그아웃 되었습니다');
@@ -81,22 +44,23 @@ class Header extends Component {
                 <div className="dropdown" >
                 <img src={MyPageLogo} className="MyPageLogoStyle"/>
                     <div className="dropdown-content">
-                        <NavLink to="/mypage" cookie={this.state.cookie}>회원정보 수정</NavLink>
+                        <NavLink to="/mypage">회원정보 수정</NavLink>
                         <button className="a" onClick={this.LogoutPopup}>로그아웃</button>
                         <hr />
     
-                        <div className="group_invite">
-                          <p className="groups_bar">Groups</p>                          
-                          <NavLink to="/createGroup" className="add_btn">+</NavLink>
+                        <div>
+                          <p className="groups_bar">Group management</p>                          
+                          <NavLink to="/createGroup">Create group</NavLink>                     
+                          <NavLink to="/inviteGroup">Invite group</NavLink>                
+                          <NavLink to="/leaveGroup">Leave group</NavLink>              
+                          <NavLink to="/dropGroup">Delete group</NavLink>
                         </div>
-                        
-                        {/* <section>
-                            {data.team_name}
-                        </section> */}
-                        
-                        <NavLink to="/">{this.props.cookie}</NavLink>
+                                                
+                        {/* 이부분을 하지 말고 Calendar클릭 시 그룹을 드롭다운으로
+                        보여주면서 해당 그룹의 일정으로 들어가게끔 만들자 */}
+                        {/* <NavLink to="/">{this.props.cookie}</NavLink>
                         <NavLink to="/">group2</NavLink>
-                        <NavLink to="/">group3</NavLink>    
+                        <NavLink to="/">group3</NavLink>     */}
                         <hr />
                         
                         <NavLink to="/dropOut">회원탈퇴</NavLink>

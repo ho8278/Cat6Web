@@ -36,7 +36,9 @@ class DropOut extends Component {
     // }
 
     dropOutClick = () => {
-        fetch("http://180.71.228.163:8080/deleteClient"
+        const id = window.sessionStorage.getItem('id');
+
+        fetch("http://180.71.228.163:8080/deleteClient/n?client_ID=" + id
             , {method: "DELETE"})
             .then(res => res.json())
             .then(
@@ -45,6 +47,10 @@ class DropOut extends Component {
                         isLoaded: true,
                         isClicked:true
                     });
+                    if (result == 200) {
+                        alert('탈퇴가 완료되었습니다'); 
+                        window.location='/';
+                    }
                 },
                 (error) => {
                     this.setState({
@@ -53,14 +59,9 @@ class DropOut extends Component {
                     });
                 }
             )
-            .then(function (response) {
-                console.log(response);
-            })
         const { isClicked } = this.state;
         // this.setState({ isClicked: true });
-        console.log(this.isClicked);
-        alert('탈퇴가 완료되었습니다');
-        window.location='/';
+       
     }
 
     render() {

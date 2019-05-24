@@ -21,14 +21,12 @@ class InviteGroup extends React.Component {
     }
 
     componentDidMount() {
-        let id = window.sessionStorage.getItem('id');
+        const id = window.sessionStorage.getItem('id');
 
         fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)
             .then(res => res.json())
             .then(
-                (res) => {                    
-                    console.log(res.data)
-                    console.log(res.data[0])
+                (res) => {           
                     this.setState({
                         teams: res.data
                     })
@@ -131,7 +129,9 @@ class InviteGroup extends React.Component {
                             </div>                           
                         </div>
                             <div className="go_invite">
+                                <NavLink to='/'>
                                 <button id="yes_btn" onClick={this.invite}>Yes</button>
+                                </NavLink>
                             </div>
                         </div>
                         // <Invite client_id={this.client_id}/>

@@ -48,3 +48,11 @@
 .add_btn{
     margin-left: 20px;
 }
+
+.menu_list li ul{
+    display: none;
+}
+
+.menu_list:hover ul{
+    display: block;
+}

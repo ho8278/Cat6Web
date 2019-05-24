@@ -8,3 +8,5 @@ export { default as Conference } from './Conference';
 export { default as Direct } from './Direct';
 export { default as DropOut } from'./DropOut';
 export { default as CreateGroup } from './CreateGroup';
+export { default as LeaveGroup } from './LeaveGroup';
+export { default as DropGroup } from './DropGroup';

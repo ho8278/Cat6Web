@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { Home, About, Posts, Mypage, Channels, Conference, Direct, DropOut, CreateGroup } from 'pages';
+import { Home, About, Posts, Mypage, Channels, Conference, Direct, DropOut, CreateGroup, LeaveGroup, DropGroup } from 'pages';
 import Menu from 'components/Menu';
 import Header from 'components/Header';
 import Channels_Nav from 'components/Channels_Nav';
@@ -53,7 +53,8 @@ class App extends Component {
               <Route path="/dropOut" component={DropOut} />
               <Route path="/createGroup" component={CreateGroup} />
               <Route path="/inviteGroup" component={InviteGroup} />
-              <Route path="invite" component={Invite}/>
+              <Route path="/leaveGroup" component={LeaveGroup} />
+              <Route path="/dropGroup" component={DropGroup} />
             </div>
 
           </div>

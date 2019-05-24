@@ -34,12 +34,7 @@ class Mypage extends Component {
     componentDidMount() {
         let id = window.sessionStorage.getItem('id');
 
-        fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id
-            // , {
-            //     credentials: "same-origin",
-            //     headers: { 'set-Cookie': this.state.cookie }
-            // }
-        )
+        fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id)
             .then(res => res.json())
             .then(
                 (res) => {
