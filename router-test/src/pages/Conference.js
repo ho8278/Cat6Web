@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import './conference.css'
 
 
-const Conference = () => {
+class Conference extends Component{
  
+  render(){ 
     return(
-        <div>
-        
-      </div>
-    );
+    <div>
+    <iframe src={"http://localhost:8080/final.html"} className='plz'/>
+  </div>
+);}
+   
 };
 
 export default Conference;

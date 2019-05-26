@@ -4,7 +4,7 @@ import { Component } from 'react';
 import './Channels.css';
 // Socket.IO로 웹 소켓 서버에 접속하기 --- (※1)
 import socketio from 'socket.io-client'
-var socket = socketio.connect('http://localhost:3001');
+var socket = socketio.connect('http://202.31.202.161:80');
 class Channels extends Component {
 
     constructor (props){
@@ -33,10 +33,11 @@ class Channels extends Component {
     componentDidMount () {
       // 실시간으로 로그를 받게 설정    
       socket.emit('channelJoin', this.state.roomId);
-      socket.on('recieve',(obj) => {    // 채팅을 받을때
+      socket.on('receive',(obj) => {    // 채팅을 받을때
+        const conObj= JSON.parse(obj)
         const logs2 = this.state.logs
-        console.log(obj)
-        logs2.push(obj) 
+        console.log(conObj)
+        logs2.push(conObj) 
         this.setState({logs: logs2}) 
         
       })
@@ -126,10 +127,10 @@ class Channels extends Component {
     render () {
       // 로그를 사용해 HTML 요소 생성 --- (※6)
       const messages = this.state.logs.map(e => (
-        <div key={e.id} className='msgContent'>
-          <span >{e.sendUserId}</span>
+        <div key={e.chatinfo_id} className='msgContent'>
+          <span >{e.send_user_id}</span>
           <span >: {e.message}</span>
-          <span > ( {e.sendDate} )</span>
+          <span > ( {e.send_date} )</span>
           <p style={{clear: 'both'}} />
         </div>   
       ))
