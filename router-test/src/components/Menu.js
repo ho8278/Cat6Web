@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './Menu.css';
 import { timingSafeEqual } from 'crypto';
+import Home from '../pages/Home';
 
 class Menu extends Component {
   constructor(props) {
@@ -49,30 +50,43 @@ class Menu extends Component {
       fontSize: '23px'
     };
 
-    
-
     let t_list = this.state.teams;
 
     return(
       <div>
         <div className="group_container">
-          <label className="group_name">Menu</label>              
-          {/* <NavLink to="/inviteGroup" className="add_btn">+</NavLink> */}
+          <label className="group_name">Menu</label>    
         </div>
 
         <div className="menu_list_container">
           <nav>
-            <ul className="menu_list" style={listStyle}>
-              
-              <li className="menu_item">Calendars
-              <ul style={listStyle}>
+            <ul className="menu_list" style={listStyle}>              
+              <li className="menu_item"><NavLink exact to ='/' className="menu_link" activeStyle={activeStyle}>Calendars</NavLink>
+              {/* <ul style={listStyle}>
+
                   {t_list.map((name) => {
                     return (<GroupCalendar onSuccss={this.setSelectedID.bind(this)} name = {name.team_name} id = {name.team_ID}/>)
                   })}
-                </ul>
+                </ul> */}
               </li>
+
               <li className="menu_item"><NavLink exact to="/conference" activeStyle={activeStyle} className="menu_link">Conference</NavLink></li>
+              {/* <li className="menu_item">Conference
+              <ul style={listStyle}>
+                  {t_list.map((name) => {
+                    return (<GroupConference onSuccss={this.setSelectedID.bind(this)} name = {name.team_name} id = {name.team_ID}/>)
+                  })}
+                </ul>
+              </li> */}
+
               <li className="menu_item"><NavLink exact to="/posts" activeStyle={activeStyle} className="menu_link">Posts</NavLink></li>
+              {/* <li className="menu_item">Posts
+              <ul style={listStyle}>
+                  {t_list.map((name) => {
+                    return (<GroupPosts onSuccss={this.setSelectedID.bind(this)} name = {name.team_name} id = {name.team_ID}/>)
+                  })}
+                </ul>
+              </li> */}
             </ul>
           </nav>
         </div>
@@ -107,10 +121,95 @@ class GroupCalendar extends Component{
     return(
       <div>
         <li>
-          <NavLink exact to="/"
+          <NavLink exact to={`/${this.props.id}`}
             activeStyle={activeStyle2}
             className="menu_link"
-            onClick={this.n_click}>
+            onClick={this.n_click}
+            
+            //Calendar로 넘어갈 때 필요한 props
+            id = {this.props.id}>
+            {this.props.name}
+          </NavLink>          
+        </li>
+      </div>
+    )
+  }
+}
+
+class GroupConference extends Component{
+
+  constructor() {
+    super(...arguments);
+    this.state = {
+        id : this.props.id,
+        name : this.props.name
+    }
+    this.n_click = this.n_click.bind(this)
+  }
+
+  n_click(){
+    this.props.onSuccss(this.state.id)
+  }
+
+  render(){
+
+    const activeStyle2 = { 
+      fontWeight: 'bold',
+      color: 'rgb(241, 210, 71)',
+      fontSize: '18px'
+    };
+
+    return(
+      <div>
+        <li>
+          <NavLink exact to="/conference"
+            activeStyle={activeStyle2}
+            className="menu_link"
+            onClick={this.n_click}
+            
+            //Conference로 넘어갈 때 필요한 props
+            id = {this.props.id}>
+            {this.props.name}
+          </NavLink>
+        </li>
+      </div>
+    )
+  }
+}
+
+class GroupPosts extends Component{
+
+  constructor() {
+    super(...arguments);
+    this.state = {
+        id : this.props.id,
+        name : this.props.name
+    }
+    this.n_click = this.n_click.bind(this)
+  }
+
+  n_click(){
+    this.props.onSuccss(this.state.id)
+  }
+
+  render(){
+
+    const activeStyle2 = { 
+      fontWeight: 'bold',
+      color: 'rgb(241, 210, 71)',
+      fontSize: '18px'
+    };
+
+    return(
+      <div>
+        <li>
+          <NavLink exact to="/posts"
+            activeStyle={activeStyle2}
+            className="menu_link"
+            onClick={this.n_click}
+            
+            //Posts로 넘어갈 때 필요한 props
+            id = {this.props.id}>
             {this.props.name}
           </NavLink>
         </li>

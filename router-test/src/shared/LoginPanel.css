@@ -1,8 +1,7 @@
 .loginPanel {
     font-family: sans-serif;
     position:absolute; 
-    top:50%; 
-    margin-top:-300px;
+    margin-top:40px;
     margin-left:40%;
     width:400px; height:300px; 
 }

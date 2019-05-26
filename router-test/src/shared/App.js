@@ -8,6 +8,7 @@ import DirectMessage_Nav from 'components/DirectMessage_Nav';
 import './App.css';
 import InviteGroup from '../pages/InviteGroup';
 import Invite from '../pages/Invite';
+import Content from 'shared/Content';
 
 class App extends Component {
   constructor() {
@@ -31,11 +32,11 @@ class App extends Component {
           <div className="left">
             <div className="client_channels_list_container">
               <div className="menu_nav_container">
-                <Menu cookie = {this.state.cookie} />
+                <Menu />
                 <hr width="250px" />
-                <Channels_Nav cookie = {this.state.cookie} />
+                <Channels_Nav />
                 <hr width="250px" />
-                <DirectMessage_Nav cookie = {this.state.cookie} />
+                <DirectMessage_Nav />
               </div>
             </div>
 
@@ -55,6 +56,8 @@ class App extends Component {
               <Route path="/inviteGroup" component={InviteGroup} />
               <Route path="/leaveGroup" component={LeaveGroup} />
               <Route path="/dropGroup" component={DropGroup} />
+              <Route path="/content" component={Content} />
+              {/* <Route path={`/${this.props.id}`} component={Home}/> */}
             </div>
 
           </div>
