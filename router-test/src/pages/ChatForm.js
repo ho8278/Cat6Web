@@ -32,7 +32,7 @@ class ChatForm extends Component {
 
   constructor (props) {
     super(props)
-    this.state = { id:'', sendUserId:'', roomId:'', sendDate:'', message:'' }
+    this.state = { chatinfo_id:'', send_user_id:'', chatroom_id:'', send_date:'', message:'' }
   }
 
  
@@ -43,13 +43,14 @@ class ChatForm extends Component {
   send () {
     if(this.state.message!=''){
       var messageSocket = { 
-        id: v4(),
-        sendUserId : this.props.name,
-        roomId :this.props.roomId,
-        sendDate: getTimeStamp(),
+        chatinfo_id: v4(),
+        send_user_id : this.props.name,
+        chatroom_id :this.props.roomId,
+        send_date: getTimeStamp(),
         message: this.state.message     
       }         
-    this.props.socket.emit('send', JSON.stringify(messageSocket))  
+      const str = JSON.stringify(messageSocket)
+    this.props.socket.emit('send', str)  
   }
   this.setState({message: ''})
      // 입력 양식을 비웁니다.

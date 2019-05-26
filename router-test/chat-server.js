@@ -5,7 +5,7 @@
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
-const portNo = 3001
+const portNo = 3333
 const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
@@ -22,14 +22,6 @@ server.listen(portNo, () => {
 })
 
 
-// public 디렉터리를 공개합니다.  --- (※2)
-app.use('/public', express.static('./public'))
-app.get('/', (req, res) => { // 루트에 접근하면 /public로 리다이렉트
-  res.redirect(302, '/public')
-})
-
-
-
 // 웹 소켓 서버를 실행합니다. --- (※3)
 const socketio = require('socket.io')
 const io = socketio.listen(server)
@@ -43,11 +35,12 @@ io.on('connection', (socket) => {
    socket.join(roomId)
    console.log('채팅방 접속 완료')
 
-   connection.query('SELECT * from chattinglog ORDER BY sendDate', function(err, rows,fields) {
+   connection.query('SELECT * from chattinglog WHERE chatroom_id="'+roomId+'" ORDER BY send_date', function(err, rows,fields) {
     if (!err)
    {  
      for(var i = 0; i < rows.length; i++){
-      socket.emit('recieve', rows[i])
+      const string = JSON.stringify(rows[i])
+      socket.emit('receive', string)
      }
     console.log(rows)
    }
@@ -59,11 +52,13 @@ io.on('connection', (socket) => {
    })
       // 메시지를 받으면 --- (※5)
    socket.on('send', (msg) => {
-    var chatMsg = JSON.parse(msg)
     // 모든 클라이언트에게 전송 --- (※6)
-    console.log(chatMsg)
-    io.to(chatMsg.roomId).emit('recieve', chatMsg)
-    connection.query('INSERT INTO chattinglog VALUES("'+chatMsg.id+'","'+chatMsg.sendUserId+'","'+chatMsg.roomId+'","'+chatMsg.sendDate+'","'+chatMsg.message+'")')
+    console.log('첫 메세지 왔다')
+    console.log(msg)
+    const dbmessage = JSON.parse(msg)
+    console.log('위에꺼가 변환 한거임')
+    io.to(dbmessage.chatroom_id).emit('receive', msg)
+    connection.query('INSERT INTO chattinglog VALUES("'+dbmessage.chatinfo_id+'","'+dbmessage.send_user_id+'","'+dbmessage.chatroom_id+'","'+dbmessage.send_date+'","'+dbmessage.message+'")')
   })
 })
  
