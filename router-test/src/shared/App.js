@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { Home, About, Posts, Mypage, Channels, Conference, Direct, DropOut, CreateGroup, LeaveGroup, DropGroup } from 'pages';
+import { Home, About, Posts, Mypage, Channels, Conference, DirectMessage, DropOut, CreateGroup, LeaveGroup, DropGroup } from 'pages';
 import Menu from 'components/Menu';
 import Header from 'components/Header';
 import Channels_Nav from 'components/Channels_Nav';
@@ -50,13 +50,13 @@ class App extends Component {
               <Route exact path="/myPage" component={Mypage} />
               <Route path="/channels" component={Channels} />
               <Route path="/conference" component={Conference} />
-              <Route path="/direct" component={Direct} />
               <Route path="/dropOut" component={DropOut} />
               <Route path="/createGroup" component={CreateGroup} />
               <Route path="/inviteGroup" component={InviteGroup} />
               <Route path="/leaveGroup" component={LeaveGroup} />
               <Route path="/dropGroup" component={DropGroup} />
               <Route path="/content" component={Content} />
+              <Route path="/dm" component={DirectMessage}/>
               {/* <Route path={`/${this.props.id}`} component={Home}/> */}
             </div>
 

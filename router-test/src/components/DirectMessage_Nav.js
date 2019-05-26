@@ -21,7 +21,7 @@ class DirectMessage_Nav extends Component {
       return(
         <div>
           <div className="direct_container">
-            <div><NavLink to="/direct" style={dr} activeStyle={activeStyle}>Direct Message</NavLink></div>
+            <div><NavLink to="/dm" style={dr} activeStyle={activeStyle}>Direct Message</NavLink></div>
           </div>
         </div>
       );
