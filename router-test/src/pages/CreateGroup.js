@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './CreateGroup.css';
+import App from '../shared/App';
 
 class CreateGroup extends Component {
     constructor(props) {
@@ -32,6 +33,7 @@ class CreateGroup extends Component {
             (result) => {                
                 if(result == 200){                    
                     alert(groupName + ' 그룹이 생성되었습니다.')
+                    return <Route path='/home' component={App} />
                 }
             },
             (error) => {

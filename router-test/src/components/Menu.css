@@ -53,6 +53,6 @@
     display: none;
 }
 
-.menu_list:hover ul{
+.menu_item:hover ul{
     display: block;
 }

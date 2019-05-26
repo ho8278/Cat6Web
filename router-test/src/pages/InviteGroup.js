@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { NavLink, Route } from 'react-dom';
 import './InviteGroup.css';
-import Invite from './Invite';
 
 class InviteGroup extends React.Component {
     constructor() {
@@ -39,7 +38,7 @@ class InviteGroup extends React.Component {
     }
 
     findInviteGroup = (e) => {
-        let id = this.client_id.current.value;
+        const id = this.client_id.current.value;
        
         fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id)
             .then(res => res.json())
