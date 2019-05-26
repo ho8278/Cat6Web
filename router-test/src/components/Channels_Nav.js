@@ -11,20 +11,20 @@ class Channels_Nav extends Component {
       const activeStyle= {
         fontWeight: 'bold',
         color: 'rgb(241, 210, 71)',
-        fontSize: '23px'
+        fontSize: '30px'
       }
       return(
         <div>
           <div className="channels_list_container">
             <div className="channels_container">
-              <label>Channels</label>
+            <NavLink to="/channels" activeStyle={activeStyle} className="channel_link"><label>Channels</label></NavLink>
               <button className="add_btn" title="채널 생성">+</button>
             </div>
-            <nav>
+            {/* <nav>
               <ul className="channels_list" style={listStyle}>
                 <li className="channel_item"><NavLink to="/channels" activeStyle={activeStyle} className="channel_link">#Main-Channel</NavLink></li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </div>
       );

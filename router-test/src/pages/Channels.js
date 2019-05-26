@@ -27,6 +27,8 @@ class Channels extends Component {
       }
       this.input_chat_name = React.createRef()
       this.add_chat = this.add_chat.bind(this)
+      this.setChatID = this.setChatID.bind(this)
+      this.setSelectedID = this.setSelectedID.bind(this)
     }
     
     // 컴포넌트가 마운트됐을 때 --- (※5)
@@ -42,6 +44,7 @@ class Channels extends Component {
         
       })
 
+      //해당 id가 속한 그룹 조회
       const id = window.sessionStorage.getItem('id');
 
       fetch("http://180.71.228.163:8080/viewTeams/n?client_ID="+id)
@@ -69,6 +72,7 @@ class Channels extends Component {
     }
   
     setSelectedID(id){
+      //그룹 안에서 해당 아이디가 속한 채팅방 조회
       this.setState({
         s_team_id:id
       })
@@ -95,6 +99,8 @@ class Channels extends Component {
         s_chat_name: chat_name,
         isClicked_c: true
       })
+
+      console.log(this.state.s_team_id + " " + chat_id + " " + chat_name)
 
       //해당 채팅방 로그 띄우기
     }
@@ -136,7 +142,7 @@ class Channels extends Component {
       ))
 
       let t_list = this.state.teams
-      let c_list = this.state.chat_rooms
+      let { chat_rooms } = this.state
 
       // let check_1 = this.state.isClicked_t
       // let check_2 = this.state.is
@@ -154,11 +160,14 @@ class Channels extends Component {
             </div>
 
             <div className="select_chat">
-              {c_list.map((name) => {
+              {chat_rooms.map((name) => {
                 return <button onClick={(e) => this.setChatID(name.chat_room_ID, name.chat_room_name, e)}>
                   {name.chat_room_name}
                 </button>
               })}
+              {/* {chat_rooms.map(name =>
+                  (<ChatItem onSuccess={this.setChatID.bind(this)} chat_name = {name.chat_room_name} chat_id={name.chat_room_ID} />)
+              )} */}
               <input type="text" ref={this.input_chat_name} placeholder="Create new chatting room!"/>
               <button id="add_chatroom" onClick={this.add_chat}>add</button>
               <hr />
@@ -179,6 +188,29 @@ class Channels extends Component {
       )
     }
   }
+
+  // class ChatItem extends Component{
+  //   constructor(){
+  //     super(...arguments)
+  //     this.state ={
+  //       chat_name: this.props.chat_name,
+  //       chat_id: this.props.chat_id
+  //     }
+  //     this.setChatID = this.setChatID.bind(this)
+  //   }
+  //   setChatID(){
+  //     this.props.onSuccess(this.state.chat_id, this.state.chat_name)
+  //   }
+  //   render(){
+  //     return (
+  //       <div>
+  //         <button onClick={this.setChatID}>
+  //           {this.props.chat_name}
+  //         </button>
+  //       </div>
+  //     )
+  //   }
+  // }
 
   export default Channels;
 
