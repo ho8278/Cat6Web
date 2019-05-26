@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 
 const Conference = () => {
+ 
     return(
         <div>
-    
+        
       </div>
     );
 };
