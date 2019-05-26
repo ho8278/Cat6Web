@@ -6,7 +6,6 @@
  border-style: solid;
  border-radius: 10px 10px 10px 10px;
 margin-bottom: 15px;
-
 }
 
 .ChatForm{
@@ -16,10 +15,11 @@ border-color: black;
 border-width: 2px;
 border-style: solid;
 border-radius: 10px 10px 10px 10px;
-
+position: relative;
+flex-direction: row;
+text-align: center;
 
 }
-
 .chat-head{
     padding: 15px;
     border-color: black;
@@ -28,26 +28,31 @@ border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     margin-bottom: 15px;
 
-
-
 }
+
 .chattingBox{
-    display: inline;
-    min-width: 900px;
   
+    width: 70%;
+    margin-right:10px;
 }
+
 .transmit{
     color: white;
-   
-}
-
-p{
-   vertical-align: middle;
+    vertical-align: middle;
     margin-left: 10px;
     margin-right: 10px;
     display: inline;
     font-weight: bold;
-    
+}
+
+.msgContent{
+
+   margin: 10px;
+   width: inherit;
+   height: 20px;
+   padding: 10px;
+   background-color: gold;
+   border-radius: 10px 10px 10px 10px;
 }
 
 .mButton{
@@ -55,7 +60,8 @@ p{
     height: 38px;
     display: inline;
     background-color: black;
-    float: right;
+    
+ 
    
 }
 .mButton:hover {
@@ -63,31 +69,13 @@ p{
     background-color: gray;
 }
 
-.regist{
-
+.text{
+    vertical-align: middle;
     margin-left: 10px;
-    width: 80px;
-    height: 38px;
+    margin-right: 10px;
     display: inline;
-    background-color: black;
-
-
-}
-
-.regist:hover {
-    cursor: pointer;
-    background-color: gray;
-}
-
-.headname{
-
-    display: inline;
-}
-
-.MessageBox{
-
-display: inline;
-
+    font-weight: bold;
+    
 }
 
 
