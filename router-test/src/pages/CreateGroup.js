@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './CreateGroup.css';
 
 class CreateGroup extends Component {
@@ -6,44 +7,37 @@ class CreateGroup extends Component {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false,
-            group_name: ''
+            isLoaded: false
         }
 
         this.group_name = React.createRef();
     }
     
-    createGroupClick = () => {
+    createGroupClick = (e) => {
+        const id = window.sessionStorage.getItem('id');
         let groupName = this.group_name.current.value;
+
+        if(groupName == ''){
+            alert('그룹 명을 적어주세요')
+            e.preventDefault()
+            return;
+        }
        
-        fetch("http://180.71.228.163:8080/createTeam?team_name=" + groupName
+        fetch("http://180.71.228.163:8080/createTeam/n?client_ID="+ id 
+                +"&team_name=" + groupName
             , { method: "POST" }
         )
         .then(res => res.json())
         .then(
-            (result) => {
-                this.setState({
-                    isLoaded: true
-                });
-                if(result.result == 200){                    
-                    alert('그룹이 생성되었습니다.');
+            (result) => {                
+                if(result == 200){                    
+                    alert(groupName + ' 그룹이 생성되었습니다.')
                 }
             },
             (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
+                console.log('create group error')
             }
         )
-        .then(function (response) {
-            console.log(response);
-            console.log('shouldComponentUpdate');
-        })
-        // const { group_name } = this.state;
-        // this.setState({ isClicked: true });
-        // console.log({ group_name });
-        //window.location = '/';
     }
 
     render() {
@@ -57,8 +51,9 @@ class CreateGroup extends Component {
                     <div className="create_group_content">
                         <label id="items">Group name</label>
                         <input type="text" ref={this.group_name} />
-                        <div>{this.state.group_name}</div>
-                        <button id="create_group_btn" onClick={this.createGroupClick}> Go </button>
+                        <NavLink to='/'>
+                            <button id="create_group_btn" onClick={this.createGroupClick}>Go</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

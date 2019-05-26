@@ -1,24 +1,18 @@
-.dm_container{
+.leave_container{
     position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.dm_banner{
+.leave_banner{
     font-size: 35px;
     font-weight: bold;
-    padding: 30px;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-input[type="text"]{
-    width: 400px;
-    height: 38px;
-    font-size: 20px;
-}
-
-.go{
+.leave{
     margin-top: 20px;
 }
 
@@ -32,9 +26,9 @@ input[type="text"]{
     text-align: center;
 } */
 
-#go_btn{
+#leave_btn{
     font-size: 22px;
-    width: 65px;
+    width: 85px;
     height: 45px;
     border-radius: 5px;
     background-color: white; 
@@ -44,27 +38,10 @@ input[type="text"]{
     padding: 10px;
 }
 
-#yes_btn{
-    font-size: 22px;
-    width: 65px;
-    height: 45px;
-    border-radius: 5px;
-    background-color: white; 
-    color: darkgray;
-    border: 2px solid darkgray;   
-    margin: 30px; 
-    padding: 10px;
-}
-
-#go_btn:hover{
-    background-color:darkgray;
+#leave_btn:hover{
+    background-color:rgb(199, 48, 48);
     color: white;
-}
-
-#yes_btn:hover{
-    background-color:rgb(5, 128, 60);
-    border: 2px solid rgb(5, 128, 60);
-    color: white;
+    border: 2px solid rgb(199, 48, 48); 
 }
 
 .view_client_info{

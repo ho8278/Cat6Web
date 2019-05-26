@@ -51,7 +51,7 @@ class RegisterPanel extends Component {
                         window.location.replace('/');   
                     }
                     else {               
-                        alert('회원가입 실패');      
+                        alert('사용할 수 없는 아이디 입니다');      
                         window.location.replace('/');
                     }                
                 },
