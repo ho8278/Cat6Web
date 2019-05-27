@@ -225,7 +225,7 @@ class Mypage extends Component {
                                 </div>
 
                                 <div className="user_info_picture">
-                                    <h3>사진</h3>
+                                    {/* <h3>사진</h3> */}
                                 </div>
                             </div>
 

@@ -128,6 +128,12 @@ text-align: center;
 
 }
 
+#view_text{
+    color:darkgray;
+    font-weight: 100;
+    margin-left: 5px;
+}
+
 .RoomBoxIn{
     display: inline;
     width: 100px;

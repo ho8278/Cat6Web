@@ -30,16 +30,17 @@ class CreateGroup extends Component {
         )
         .then(res => res.json())
         .then(
-            (result) => {                
-                if(result == 200){                    
+            (result) => {               
+                                 
                     alert(groupName + ' 그룹이 생성되었습니다.')
-                    return <Route path='/home' component={App} />
-                }
+                    // return <Route path='/home' component={App} />
+                
             },
             (error) => {
                 console.log('create group error')
             }
-        )
+        )            
+        alert(groupName + ' 그룹이 생성되었습니다.')
     }
 
     render() {

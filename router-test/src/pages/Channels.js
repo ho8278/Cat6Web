@@ -441,8 +441,8 @@ class Channels extends Component {
           <div className="ki">
             <div className="chat">
               <div className='chat-head'>
-                <p className='text'>채팅방 이름 : {this.state.s_chat_name}</p>
-                <p className="text"> 닉네임: {this.state.nicknames.client_nickname}</p>
+                <p className='text'><a id="view_text">채팅방 이름 :</a> {this.state.s_chat_name}</p>
+                <p className="text"><a id="view_text">닉네임 :</a>{this.state.nicknames.client_nickname}</p>
                 <input id="input_invite_id" ref={this.invite_id} placeholder='초대할 아이디'/>
                 <button id="invite_chat" onClick={this.invite_chat}>+</button>
                 {/* <input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} /> */}
