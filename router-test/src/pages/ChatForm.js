@@ -33,12 +33,16 @@ class ChatForm extends Component {
   constructor() {
     super(...arguments);
     this.state = {
+      
       send_user_id: this.props.name,
       chatroom_id: this.props.roomId,
       message: ''
     }
   }
-
+ componentDidMount(){
+  console.log(this.props.name)
+  console.log(this.props.roomId)
+ }
 
   messageChanged(e) {
     this.setState({ message: e.target.value })
