@@ -1,3 +1,18 @@
+.ki{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat {
+    width: 70%;
+    margin-right: 20px;
+}
+
+.vote{
+    width: 20%;
+}
+
 #ChatBox{
  overflow-y: auto;
  height: 650px;
@@ -20,6 +35,7 @@ flex-direction: row;
 text-align: center;
 
 }
+
 .chat-head{
     padding: 15px;
     border-color: black;
@@ -27,7 +43,25 @@ text-align: center;
     border-style: solid;
     border-radius: 10px 10px 10px 10px;
     margin-bottom: 15px;
+}
 
+.chat-head2{
+    padding: 15px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 15px;
+    height: 36px;
+}
+
+.vote_content{
+    padding: 15px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 15px;
 }
 
 .chattingBox{
@@ -59,11 +93,11 @@ text-align: center;
     width: 80px;
     height: 38px;
     display: inline;
-    background-color: black;
-    
- 
-   
+    background-color: black; 
+    border : none;
+    border-radius: 5px; 
 }
+
 .mButton:hover {
     cursor: pointer;
     background-color: gray;
@@ -71,8 +105,8 @@ text-align: center;
 
 .text{
     vertical-align: middle;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
     display: inline;
     font-weight: bold;
     
@@ -125,4 +159,78 @@ text-align: center;
     height: 48px;
     width: 80%;
     font-size: 15px;
+}
+
+#input_vote{
+    width: 120px;
+    height: 10px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#input_invite_id{
+    margin-left: 10px;
+}
+
+#invite_chat{
+    font-size: 15px;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 5px;
+}
+
+#invite_chat:hover{    
+    background-color: rgb(40, 187, 60); 
+    color: white;
+    border: 2px solid rgb(40, 187, 60);  
+}
+
+#select_op{
+    width: 80px;
+    height: 25px;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+#add_vote{
+    font-size: 12px;
+    font-weight: bold;
+    width: 40px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 20px;
+}
+
+#add_vote:hover{    
+    background-color: rgb(40, 187, 60); 
+    color: white;
+    border: 2px solid rgb(40, 187, 60);  
+}
+
+#my_btn{
+    font-size: 12px;
+    font-weight: bold;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-left: 5px; 
+    margin-top: 10px;  
+    margin-bottom: 10px; 
+}
+
+#my_btn:hover{
+    background-color: rgb(40, 187, 60); 
+    color: white;
+    border: 2px solid rgb(40, 187, 60);  
 }

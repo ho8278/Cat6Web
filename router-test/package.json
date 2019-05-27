@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
     "mysql": "^2.17.1",
     "react": "^16.8.4",
+    "react-addons-update": "^15.6.2",
     "react-alert": "^5.5.0",
     "react-calendar": "^2.18.1",
     "react-cookie": "^4.0.0",

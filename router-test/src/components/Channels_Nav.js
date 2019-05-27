@@ -18,7 +18,7 @@ class Channels_Nav extends Component {
           <div className="channels_list_container">
             <div className="channels_container">
             <NavLink to="/channels" activeStyle={activeStyle} className="channel_link"><label>Channels</label></NavLink>
-              <button className="add_btn" title="채널 생성">+</button>
+              {/* <button className="add_btn" title="채널 생성">+</button> */}
             </div>
             {/* <nav>
               <ul className="channels_list" style={listStyle}>
