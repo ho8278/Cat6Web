@@ -28,6 +28,14 @@ class Channels extends Component {
         this.setState({logs: logs2}) 
         
       })
+      socket.on('pastreceive',(obj) => {    // 채팅을 받을때
+        const conObj= JSON.parse(obj)
+        const logs2 = this.state.logs
+        console.log(conObj)
+        logs2.push(conObj) 
+        this.setState({logs: logs2}) 
+        
+      })
     }
 
    componentDidUpdate()
