@@ -20,7 +20,7 @@ class Channels extends Component {
 
         //소속 채팅방
         chat_rooms: [],
-        s_chat_id: '',
+        s_chat_id: 'main',
         s_chat_name: '',
         isClicked_c: false,
         noticeContents: "공지 없음",
