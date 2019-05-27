@@ -50,6 +50,9 @@ class Menu extends Component {
       fontSize: '23px'
     };
 
+    
+      
+
     let t_list = this.state.teams;
 
     return(
@@ -70,7 +73,7 @@ class Menu extends Component {
                 </ul> */}
               </li>
 
-              <li className="menu_item"><NavLink exact to="/conference" activeStyle={activeStyle} className="menu_link">Conference</NavLink></li>
+              <li className="menu_item"><a href ={"https://67bdee5b.ngrok.io/html.html"} target="_blank" className="aStyle">Conference</a></li>
               {/* <li className="menu_item">Conference
               <ul style={listStyle}>
                   {t_list.map((name) => {

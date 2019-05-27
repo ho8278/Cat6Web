@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
    {  
      for(var i = 0; i < rows.length; i++){
       const string = JSON.stringify(rows[i])
-      socket.emit('receive', string)
+      socket.emit('pastreceive', string)
      }
     console.log(rows)
    }

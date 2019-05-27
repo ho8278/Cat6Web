@@ -17,6 +17,19 @@
     color: black;
 }
 
+.aStyle:link{
+
+    text-decoration: none;
+  
+}
+
+
+.aStyle:visited{
+    color: black;
+    text-decoration: none;
+}
+
+
 /* .nav-container {
     display: flex;
     flex-direction: row;

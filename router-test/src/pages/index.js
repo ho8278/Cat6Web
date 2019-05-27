@@ -10,3 +10,4 @@ export { default as CreateGroup } from './CreateGroup';
 export { default as LeaveGroup } from './LeaveGroup';
 export { default as DropGroup } from './DropGroup';
 export { default as DirectMessage } from './DirectMessage';
+export { default as myDirectmsg } from './myDirectmsg';
