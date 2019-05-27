@@ -13,14 +13,16 @@ class myDirectmsg extends Component{
         this.state = {
           logs: [],
           name:'',
-          chatroom_id: this.props.roomid
+          s_chat_id: ''
         }
     }
     componentDidMount () {
         // 실시간으로 로그를 받게 설정    
-
-        console.log(this.props.roomid);
-        socket.emit('channelJoin', this.state.chatroom_id);
+        let tmp = window.sessionStorage.getItem('tmp'); //임시 채팅방 id
+        console.log(tmp);
+        this.state.s_chat_id =tmp;
+        console.log(this.state.s_chat_id);
+        socket.emit('channelJoin', this.state.s_chat_id);
         socket.on('receive',(obj) => {    // 채팅을 받을때
           const conObj= JSON.parse(obj)
           const logs2 = this.state.logs
@@ -47,7 +49,7 @@ class myDirectmsg extends Component{
  
      nameChanged (e) {
        this.setState({name: e.target.value})
-       console.log(this.state.name)
+      
      }
 
 
@@ -72,7 +74,7 @@ class myDirectmsg extends Component{
               <input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} />
             </div>
             <div id='ChatBox'>{mymessages}</div>
-            <ChatForm name={this.state.name} roomId={this.state.chatroom_id} socket={socket} />
+            <ChatForm name={this.state.name} roomId={this.state.s_chat_id} socket={socket} />
           </div>
       
   </div>

@@ -7,7 +7,7 @@ class DirectMessage extends Component {
         this.state = {
             data:[],
             isSearch: false,
-            roomid :'main',                  
+            roomid :'',                  
         }
         this.input_id = React.createRef()
         this.find_client = this.find_client.bind(this)
@@ -53,7 +53,7 @@ class DirectMessage extends Component {
                         console.log('2');
                     }
 
-                    console.log(this.state.roomid);
+                    window.sessionStorage.setItem('tmp', this.state.roomid);
                 }
                 else {
                     alert('해당 아이디가 존재하지 않습니다');
@@ -81,7 +81,7 @@ class DirectMessage extends Component {
                     {gogo==true &&
                         <div>
                             <label>{this.state.data.client_name}님에게 메세지를 보내시겠습니까?</label>
-                            <NavLink exact to="/myDirectmsg" roomid={this.roomid} ><button id="go_btn">DM!</button></NavLink>
+                            <NavLink exact to="/myDirectmsg" ><button id="go_btn">DM!</button></NavLink>
                         </div>
                     }
                 </div>
