@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { NavLink, Route } from 'react-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './InviteGroup.css';
 
 class InviteGroup extends React.Component {
@@ -16,7 +16,8 @@ class InviteGroup extends React.Component {
         };
 
         this.client_id = React.createRef();
-        this.view_client_id = React.createRef();        
+        this.view_client_id = React.createRef();      
+        this.findInviteGroup = this.findInviteGroup.bind(this)  
     }
 
     componentDidMount() {
@@ -37,7 +38,7 @@ class InviteGroup extends React.Component {
             )
     }
 
-    findInviteGroup = (e) => {
+    findInviteGroup () {
         const id = this.client_id.current.value;
        
         fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id)
@@ -48,16 +49,14 @@ class InviteGroup extends React.Component {
                     {
                         this.setState({
                             searchDone: true,
-                            data: res.data,
-                            result: res.result,
-                            search_id: res.data.client_ID
+                            data: res.data
                         });
                     }
                     else {
                         alert('해당 아이디가 존재하지 않습니다');
-                        this.client_id.current.value = '';
-                        this.searchDone=false;
-                        this.data = [];
+                        this.state.client_id.current.value = '';
+                        this.state.searchDone=false;
+                        this.state.data = [];
                     }
                 }                
             )
@@ -128,9 +127,9 @@ class InviteGroup extends React.Component {
                             </div>                           
                         </div>
                             <div className="go_invite">
-                                <NavLink to='/'>
+                                <NavLink to ='/'>
                                 <button id="yes_btn" onClick={this.invite}>Yes</button>
-                                </NavLink>
+                               </NavLink>
                             </div>
                         </div>
                         // <Invite client_id={this.client_id}/>

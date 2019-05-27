@@ -90,3 +90,39 @@ text-align: center;
     width: 100px;
 
 }
+
+#add_chatroom{ 
+    font-size: 15px;
+    font-weight: bold;
+    width: 60px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: white; 
+    color: darkgray;
+    border: 2px solid darkgray;   
+    margin-top: 50px; 
+    margin-left: 5px;
+}
+
+.flow{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+#chats{
+    font-size: 15px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+.chat_name_input{
+    height: 48px;
+    width: 80%;
+    font-size: 15px;
+}

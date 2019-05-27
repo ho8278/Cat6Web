@@ -12,7 +12,6 @@ class Channels extends Component {
       this.state = {
         logs: [],
         name:'',
-        roomId:'main',
 
         //소속 그룹
         teams: [],
@@ -23,7 +22,11 @@ class Channels extends Component {
         chat_rooms: [],
         s_chat_id: '',
         s_chat_name: '',
-        isClicked_c: false
+        isClicked_c: false,
+        noticeContents: "공지 없음",
+
+        //공지 가져오기
+        data: [],
       }
       this.input_chat_name = React.createRef()
       this.add_chat = this.add_chat.bind(this)
@@ -34,7 +37,7 @@ class Channels extends Component {
     // 컴포넌트가 마운트됐을 때 --- (※5)
     componentDidMount () {
       // 실시간으로 로그를 받게 설정    
-      socket.emit('channelJoin', this.state.roomId);
+      socket.emit('channelJoin', this.state.s_chat_id);
       socket.on('receive',(obj) => {    // 채팅을 받을때
         const conObj= JSON.parse(obj)
         const logs2 = this.state.logs
@@ -100,9 +103,28 @@ class Channels extends Component {
         isClicked_c: true
       })
 
-      console.log(this.state.s_team_id + " " + chat_id + " " + chat_name)
+      // 공지내용 가져오기
+      fetch("http://180.71.228.163:8080/viewNotice?chat_room_ID="+chat_id)
+            .then(res => res.json())
+            .then(
+                (res) => {
+                  if(res.result == 200)
+                  {
+                    this.setState({
+                      data: res.data[0]
+                    })
+                    
+                    this.viewNotice()
+                  }
+                },
+                (error) => {                    
+                    alert(error);
+                }
+            )
+    }
 
-      //해당 채팅방 로그 띄우기
+    viewNotice(){
+      alert('공지: ' + this.state.data.notice_contents)
     }
 
     add_chat(e){
@@ -143,6 +165,7 @@ class Channels extends Component {
 
       let t_list = this.state.teams
       let { chat_rooms } = this.state
+      var noticeContentss = this.state.data.notice_contents
 
       // let check_1 = this.state.isClicked_t
       // let check_2 = this.state.is
@@ -160,11 +183,13 @@ class Channels extends Component {
             </div>
 
             <div className="select_chat">
-              {chat_rooms.map((name) => {
-                return <button onClick={(e) => this.setChatID(name.chat_room_ID, name.chat_room_name, e)}>
-                  {name.chat_room_name}
-                </button>
-              })}
+              <div className="flow">
+                {chat_rooms.map((name) => {
+                  return <button id="chats" onClick={(e) => this.setChatID(name.chat_room_ID, name.chat_room_name, e)}>
+                    {name.chat_room_name}
+                  </button>
+                })}
+              </div>
               {/* {chat_rooms.map(name =>
                   (<ChatItem onSuccess={this.setChatID.bind(this)} chat_name = {name.chat_room_name} chat_id={name.chat_room_ID} />)
               )} */}
@@ -179,10 +204,13 @@ class Channels extends Component {
           <div className="ki">
             <div className='chat-head'>
               <p className='text'>메인 채팅방</p>
-              <p className="text"> 이름: </p><input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} />
+              <p className="text"> 이름: {window.sessionStorage.getItem(' id')}</p>
+              <input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} />
+              
             </div>
+            
             <div id='ChatBox'>{messages}</div>
-            <ChatForm name={this.state.name} roomId={this.state.roomId} socket={socket} />
+            <ChatForm name={this.state.name} roomId={this.state.s_chat_id} socket={socket} />
           </div>
         </div>
       )
