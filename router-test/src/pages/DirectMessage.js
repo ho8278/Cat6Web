@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink, Route } from 'react-router-dom';
 
 class DirectMessage extends Component {
     constructor(){
@@ -54,7 +55,7 @@ class DirectMessage extends Component {
                     {gogo==true &&
                         <div>
                             <label>{this.state.data.client_name}님에게 메세지를 보내시겠습니까?</label>
-                            <button id="go_btn" onClick={this.go_dm}>DM!</button>
+                            <NavLink exact to="/myDirectmsg"><button id="go_btn">DM!</button></NavLink>
                         </div>
                     }
                 </div>
