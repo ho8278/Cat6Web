@@ -54,6 +54,7 @@ class DirectMessage extends Component {
                     }
 
                     window.sessionStorage.setItem('tmp', this.state.roomid);
+                    window.sessionStorage.setItem('ch_name', this.state.data.client_name)
                 }
                 else {
                     alert('해당 아이디가 존재하지 않습니다');

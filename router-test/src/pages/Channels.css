@@ -4,6 +4,13 @@
     flex-direction: row;
 }
 
+.zu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
 .chat {
     width: 70%;
     margin-right: 20px;
@@ -64,8 +71,7 @@ text-align: center;
     margin-bottom: 15px;
 }
 
-.chattingBox{
-  
+.chattingBox{  
     width: 70%;
     margin-right:10px;
 }
@@ -112,6 +118,9 @@ text-align: center;
     
 }
 
+#toto{
+    margin-bottom: 10px;
+}
 
 .NameBoxIn{
     display: inline;
