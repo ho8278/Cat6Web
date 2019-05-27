@@ -50,10 +50,7 @@ class Menu extends Component {
       fontSize: '23px'
     };
 
-    const aStyle={
-      text_decoration:'none'
-      
-    };
+    
       
 
     let t_list = this.state.teams;
