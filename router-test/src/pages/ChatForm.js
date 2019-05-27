@@ -47,6 +47,7 @@ class ChatForm extends Component {
   // 서버에 이름과 메시지 전송 --- (※3)
   send() {
     
+    console.log(this.state.send_user_id);
     if (this.state.message != '') {
 
       const tmp = this.state.message

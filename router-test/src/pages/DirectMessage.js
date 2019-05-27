@@ -6,7 +6,8 @@ class DirectMessage extends Component {
         super(...arguments)
         this.state = {
             data:[],
-            isSearch: false
+            isSearch: false,
+            roomid :'main',                  
         }
         this.input_id = React.createRef()
         this.find_client = this.find_client.bind(this)
@@ -25,6 +26,34 @@ class DirectMessage extends Component {
                         isSearch: true,
                         data: res.data
                     });
+
+                    console.log(this.state.roomid);
+                    let my_id = window.sessionStorage.getItem('id');
+                 
+                    console.log(c_id);
+                    console.log(my_id);
+                    var rroomid ='';
+
+                    if(my_id>c_id)
+                    {
+                        rroomid = my_id+c_id;
+                        console.log(rroomid)
+                        this.setState({
+                           roomid : rroomid
+                        });
+                        console.log('1');                
+                    }
+                    else
+                    {
+                        rroomid = c_id+my_id;
+                        console.log(rroomid)
+                        this.setState({
+                            roomid: rroomid
+                        });
+                        console.log('2');
+                    }
+
+                    console.log(this.state.roomid);
                 }
                 else {
                     alert('해당 아이디가 존재하지 않습니다');
@@ -36,9 +65,6 @@ class DirectMessage extends Component {
         )
     }
 
-    go_dm(){
-        alert('메시지창으로!')
-    }
 
     render() {
         let gogo = this.state.isSearch
@@ -55,7 +81,7 @@ class DirectMessage extends Component {
                     {gogo==true &&
                         <div>
                             <label>{this.state.data.client_name}님에게 메세지를 보내시겠습니까?</label>
-                            <NavLink exact to="/myDirectmsg"><button id="go_btn">DM!</button></NavLink>
+                            <NavLink exact to="/myDirectmsg" roomid={this.roomid} ><button id="go_btn">DM!</button></NavLink>
                         </div>
                     }
                 </div>
