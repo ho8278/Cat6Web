@@ -300,8 +300,7 @@ class Channels extends Component {
     }
 
     vote_func(){
-
-      fetch("http://180.71.228.163:8080/vote&vote_item_ID=" + this.state.s_vote_item
+      fetch("http://180.71.228.163:8080/vote/n?vote_item_ID=" + this.state.s_vote_item
       ,{
         method: "POST"
       }
