@@ -22,6 +22,7 @@ class Channels extends Component {
         teams: [],
         s_team_id: '',
         isClicked_t: false,
+        on_change: false,
 
         //소속 채팅방
         chat_rooms: [],
@@ -70,24 +71,24 @@ class Channels extends Component {
     
     // 컴포넌트가 마운트됐을 때 --- (※5)
     componentDidMount () {
-      // 실시간으로 로그를 받게 설정    
-      socket.emit('channelJoin', this.state.s_chat_id);
-      socket.on('receive',(obj) => {    // 채팅을 받을때
-        const conObj= JSON.parse(obj)
-        const logs2 = this.state.logs
-        console.log(conObj)
-        logs2.push(conObj) 
-        this.setState({logs: logs2}) 
+      // // 실시간으로 로그를 받게 설정    
+      // socket.emit('channelJoin', this.state.s_chat_id);
+      // socket.on('receive',(obj) => {    // 채팅을 받을때
+      //   const conObj= JSON.parse(obj)
+      //   const logs2 = this.state.logs
+      //   console.log(conObj)
+      //   logs2.push(conObj) 
+      //   this.setState({logs: logs2}) 
         
-      })
-      socket.on('pastreceive',(obj) => {    // 채팅을 받을때
-        const conObj= JSON.parse(obj)
-        const logs2 = this.state.logs
-        console.log(conObj)
-        logs2.push(conObj) 
-        this.setState({logs: logs2}) 
+      // })
+      // socket.on('pastreceive',(obj) => {    // 채팅을 받을때
+      //   const conObj= JSON.parse(obj)
+      //   const logs2 = this.state.logs
+      //   console.log(conObj)
+      //   logs2.push(conObj) 
+      //   this.setState({logs: logs2}) 
         
-      })
+      // })
 
       //해당 id가 속한 그룹 조회
       const id = window.sessionStorage.getItem('id');
@@ -123,8 +124,8 @@ class Channels extends Component {
 
    componentDidUpdate()
    {
-    const messageBody = document.getElementById('ChatBox')
-    messageBody.scrollTop = messageBody.scrollHeight;
+    // const messageBody = document.getElementById('ChatBox')
+    // messageBody.scrollTop = messageBody.scrollHeight;
    }
 
     nameChanged (e) {
@@ -134,7 +135,8 @@ class Channels extends Component {
     setSelectedID(id){
       //그룹 안에서 해당 아이디가 속한 채팅방 조회
       this.setState({
-        setSeles_team_id:id
+        setSeles_team_id:id,
+        isClicked_c: false
       })
       const c_id = window.sessionStorage.getItem('id')
 
@@ -159,6 +161,20 @@ class Channels extends Component {
         s_chat_name: chat_name,
         isClicked_c: true
       })
+
+      if(this.state.on_change==false){
+        this.setState({
+          onChange: true
+        })
+      }
+      else{
+        this.setState({
+          onChange: false
+        })
+      }
+      
+      console.log(chat_id+"!!!")
+      this.socket_func(chat_id)
 
       // 공지내용 가져오기
       fetch("http://180.71.228.163:8080/viewNotice?chat_room_ID="+chat_id)
@@ -196,6 +212,32 @@ class Channels extends Component {
                     alert(error);
                 }
             )
+
+
+    }
+
+    socket_func(id){
+
+      console.log(id+"!!!")
+      /////
+      // 실시간으로 로그를 받게 설정    
+      socket.emit('channelJoin', id);
+      socket.on('receive', (obj) => {    // 채팅을 받을때
+        const conObj = JSON.parse(obj)
+        const logs2 = this.state.logs
+        console.log(conObj)
+        logs2.push(conObj)
+        this.setState({ logs: logs2 })
+
+      })
+      socket.on('pastreceive', (obj) => {    // 채팅을 받을때
+        const conObj = JSON.parse(obj)
+        const logs2 = this.state.logs
+        console.log(conObj)
+        logs2.push(conObj)
+        this.setState({ logs: logs2 })
+
+      })
     }
 
     viewNotice(){
@@ -406,6 +448,8 @@ class Channels extends Component {
       let {vote_info} = this.state
       let {vote_items} = this.state
       let {com_reg_vot} = this.state
+      let {isClicked_c} = this.state
+      let {on_change} = this.state
 
       return (
         <div>
@@ -448,9 +492,15 @@ class Channels extends Component {
                 {/* <input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} /> */}
 
               </div>
+              
+              {isClicked_c==true &&
+                <div>
+                  <div id='ChatBox'>{messages}</div>
 
-              <div id='ChatBox'>{messages}</div>
-              <ChatForm name={this.state.nicknames.client_nickname} roomId={this.state.s_chat_id} socket={socket} />
+                  <ChatForm name={this.state.nicknames.client_nickname} roomId={this.state.s_chat_id} socket={socket} />
+
+                </div>
+              }
             </div>
               
             <div className="vote">
@@ -480,23 +530,29 @@ class Channels extends Component {
                 <div>
                   {/* 투표 생성 */}
                   <div>
+                    <div>
                     투표 제목:
                     <input  type="text"
                             id="input_vote"
                             ref={this.title}
                             placeholder='투표 제목'/>
+                    </div>
 
+                    <div>
                     시작 날짜:
                     <input  type="datetime-local"
                             id="input_vote"
                             ref={this.start_date}
                             placeholder='시작일' />
+                    </div>
 
+                    <div>
                     종료 날짜:
                     <input  type="date"
                             id="input_vote"
                             ref={this.end_date}
                             placeholder='종료일' />
+                    </div>
                   </div>
                   <div>
                     <button id="my_btn" onClick={this.add_vote_item}>항목추가</button>

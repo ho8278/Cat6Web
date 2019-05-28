@@ -13,10 +13,30 @@ class myDirectmsg extends Component {
     this.state = {
       logs: [],
       s_chat_id: '',
-      nickname: ''
+      nickname: '',
+      dr: false
     }
   }
   componentDidMount() {
+    
+    //내 정보 조회->닉네임 설정
+    const id = window.sessionStorage.getItem('id');
+    fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id)
+      .then(res => res.json())
+      .then(
+        (res) => {
+          this.setState({
+            nickname: res.data.client_nickname,
+            s_chat_id: window.sessionStorage.getItem('tmp'),
+            dr: true
+          })
+        },
+        (error) => {
+          alert(error);
+        }
+      )
+
+
     // 실시간으로 로그를 받게 설정    
     let tmp = window.sessionStorage.getItem('tmp'); //임시 채팅방 id
     console.log(tmp);
@@ -40,24 +60,10 @@ class myDirectmsg extends Component {
 
     })
 
-    //내 정보 조회->닉네임 설정
-    const id = window.sessionStorage.getItem('id');
-    fetch("http://180.71.228.163:8080/showClientInfo?client_ID=" + id)
-      .then(res => res.json())
-      .then(
-        (res) => {
-          this.setState({
-            nickname: res.data.client_nickname
-          })
-        },
-        (error) => {
-          alert(error);
-        }
-      )
   }
   componentDidUpdate() {
-    const messageBody = document.getElementById('ChatBox')
-    messageBody.scrollTop = messageBody.scrollHeight;
+    // const messageBody = document.getElementById('ChatBox')
+    // messageBody.scrollTop = messageBody.scrollHeight;
   }
 
   nameChanged(e) {
@@ -65,8 +71,8 @@ class myDirectmsg extends Component {
 
   }
 
-
   render() {
+    let {dr} = this.state
 
     const mymessages = this.state.logs.map(e => (
       <div key={e.chatinfo_id} className='msgContent'>
@@ -88,9 +94,15 @@ class myDirectmsg extends Component {
             {/* <p className="text"> 이름: {window.sessionStorage.getItem('id')}</p>
               <input value={this.state.name} className="NameBoxIn" onChange={e => this.nameChanged(e)} /> */}
           </div>
-          <div id='ChatBox'>{mymessages}</div>
-          <ChatForm name={this.state.nickname} roomId={this.state.s_chat_id} socket={socket} />
-        </div>
+          {dr==true &&
+          <div>
+            <div id='ChatBox'>{mymessages}</div>
+            <ChatForm name={this.state.nickname} roomId={this.state.s_chat_id} socket={socket} />
+       
+
+          </div>
+          }
+           </div>
 
       </div>
     );
