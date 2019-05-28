@@ -1,56 +1,56 @@
 .registerPanel {
-    font-family: sans-serif;
-    position:absolute;  
-    margin-top: 30px; 
-    margin-left: 40%;
-    width: 500px; 
-    height:800px; 
-    background-color: white;
+  font-family: sans-serif;
+  position:absolute;  
+  margin-top: 30px; 
+  margin-left: -200px;
+  width: 500px; 
+  height:800px; 
+  background-color: white;
 }
 
 .content{
-  text-align: left;
+text-align: left;
 }
 
 #title_text{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 20px;
-  margin-left: 50px;
+font-size: 20px;
+font-weight: bold;
+margin: 20px;
+margin-left: 50px;
 }
 
 form{
-      position:center;
-      margin: 10px;
+    position:center;
+    margin: 10px;
 }
 
 #signup_btn {
-  font-size: 15px;
-  font-weight: bold;
-  width: 70px;
-  height: 40px;
-  border-radius: 5px;
-  background-color: white; 
-  color: rgb(78, 78, 78);
-  border: 2px solid rgb(78, 78, 78);
-  margin-left:110px;
-  margin-top: 20px;
+font-size: 15px;
+font-weight: bold;
+width: 70px;
+height: 40px;
+border-radius: 5px;
+background-color: white; 
+color: rgb(78, 78, 78);
+border: 2px solid rgb(78, 78, 78);
+margin-left:110px;
+margin-top: 20px;
 }
-  
+
 #signup_btn:hover {
-    cursor: pointer;
-    color:white;
-    background-color: rgb(78, 78, 78);
+  cursor: pointer;
+  color:white;
+  background-color: rgb(78, 78, 78);
 }
 
 table {
-    text-align: center;
-    vertical-align: middle;
+  text-align: center;
+  vertical-align: middle;
 }
 
 input {
-    margin-bottom: 0;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #777;
+  margin-bottom: 0;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #777;
 }
