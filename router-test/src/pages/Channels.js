@@ -134,8 +134,9 @@ class Channels extends Component {
   
     setSelectedID(id){
       //그룹 안에서 해당 아이디가 속한 채팅방 조회
+      console.log(id)
       this.setState({
-        setSeles_team_id:id,
+        s_team_id:id,
         isClicked_c: false
       })
       const c_id = window.sessionStorage.getItem('id')
