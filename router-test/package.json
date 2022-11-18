@@ -17,7 +17,7 @@
     "react-modal": "^3.8.1",
     "react-popup": "^0.10.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "5.0.1",
     "react-time-picker": "^3.5.2",
     "react-yearly-calendar": "^1.2.1",
     "socket.io": "^2.2.0",
